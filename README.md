@@ -9,8 +9,6 @@ The book rejects the traditional publishing mode, and adopts the form of directl
 The book immediately caused a significant response in the relevant fields after its release.
 Based on the version 1.0 of the original book, various materials (PPT courseware, videos, blogs, articles, etc.) with more complete ideas and richer contents have been formed through continuous iteration. 
 
-Here are the newest version of this book and importantent files, and all other materials and the original book can be retrieved and downloaded on the Internet, or go to the official website of the [Big Systems View]: http://www.holomind.com.cn .
-
 ## Summary
 The concept of 'Big Systems View' is formally and explicitly proposed in this book. Previously, although this term was occasionally heard, its basic meaning was relatively broad. This book attempts to shape people's thinking patterns more scientifically with a big systems perspective, guiding readers to observe and analyze the world from a new perspective. Through the cultivation of a big systems perspective, readers can upgrade their worldview and achieve transcendence in their thoughts and actions.
 
@@ -18,7 +16,16 @@ The author uses the simplest words, minimizes the size, abandons mathematical fo
 
 This book is aimed at the general public people, whether ordinary managers and technicians, leaders and experts, or even ordinary people, they will gain something, but the core target readers are those who want to do big things.
 
+## Next Plan
+① Upgrade to version 2.0.  Integrate the author's new ideas and everyone's ideas since the release of version 1.0.
 
+② Translate into English.
+
+I hope to continue to receive everyone's support.
+
+This project only provides the latest version of the manuscript and the main related documents. All other materials and the original book can be retrieved and downloaded on the Internet, or go to the official website of the [Big Systems View]: http://www.holomind.com.cn .
+
+<br><br>
 
 
 
@@ -43,6 +50,7 @@ This book is aimed at the general public people, whether ordinary managers and t
 ①升级到2.0版本。将自1.0版发布以来，作者的新思想和大家的思想融合进来。
 
 ②翻译为英文。
+
 希望继续得到大家支持。
 
 本项目只提供书稿最新版和主要相关文档，其他所有资料以及原书均可在互联网上检索并下载，或者，到【大系统观】官网：http://www.holomind.com.cn 下载。
