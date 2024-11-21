@@ -1,4 +1,5 @@
 # _Big Systems View_
+## Current State
 
 In 2016, completed the open source book:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**Big Systems View: Bigger outlook, bigger thinking, bigger frame, bigger promotion on the world**_
@@ -9,6 +10,17 @@ The book immediately caused a significant response in the relevant fields after 
 Based on the version 1.0 of the original book, various materials (PPT courseware, videos, blogs, articles, etc.) with more complete ideas and richer contents have been formed through continuous iteration. 
 
 Here are the newest version of this book and importantent files, and all other materials and the original book can be retrieved and downloaded on the Internet, or go to the official website of the [Big Systems View]: http://www.holomind.com.cn .
+
+## Summary
+The concept of 'Big Systems View' is formally and explicitly proposed in this book. Previously, although this term was occasionally heard, its basic meaning was relatively broad. This book attempts to shape people's thinking patterns more scientifically with a big systems perspective, guiding readers to observe and analyze the world from a new perspective. Through the cultivation of a big systems perspective, readers can upgrade their worldview and achieve transcendence in their thoughts and actions.
+
+The author uses the simplest words, minimizes the size, abandons mathematical formulas, and combines practical technical and management work with the current domestic and international economic and social situation to explain the basic principles of systems theory in a clear and concise manner. While summarizing the predecessors, I also discuss my own thoughts, experiences, innovative ideas, methodologies, and other aspects. It mainly includes theoretical methods, innovative practice and reflection: system theory, classic books introduction, organization and self-organization, loose coupling and tight coupling, standard and self-standard, Internetism, holographic organic system theory, system structure dynamics, information productivity, digital oilfield based-on Big Systems View, the essence of Internet+, artificial intelligence, and further philosophical thinking.
+
+This book is aimed at the general public people, whether ordinary managers and technicians, leaders and experts, or even ordinary people, they will gain something, but the core target readers are those who want to do big things.
+
+
+
+
 
 # 《大系统观》
 ## 目前状态
