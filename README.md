@@ -1,3 +1,4 @@
+#### [中文🔃](#english)
 # _Big Systems View_
 ## Current State
 
@@ -28,7 +29,7 @@ This project only provides the latest version of the manuscript and the main rel
 <br><br>
 
 
-
+#### [English🔃](#中文)
 # 《大系统观》
 ## 目前状态
 2016年完成了开源著作：<br>
