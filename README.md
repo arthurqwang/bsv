@@ -20,3 +20,5 @@ Here are the newest version of this book and importantent files, and all other m
 在原书1.0版本基础上，通过不断迭代，形成了思想更加完备、内容更加丰富的各种资料（PPT课件、视频、公众号、文章等）。
 
 本项目只提供书稿最新版和主要相关文档，其他所有资料以及原书均可在互联网上检索并下载，或者，到【大系统观】官网：http://www.holomind.com.cn 下载。
+
+<img alt="BSV Logo"  src="../arthurqwang/_/BSV_Book_300.jpg" height="200">
