@@ -59,7 +59,7 @@ This project only provides the latest version of the manuscript and the main rel
 <center>
 <img alt="BSV Logo"  src="files/img/BSV_Cover-500.jpg"><br>
 <img alt="BSV Logo"  src="files/img/BSV_back_cover-500.jpg"><br>
-<img alt="BSV Logo"  src="files/img/BSV_star.jpg"><br>
+<img alt="BSV Logo"  src="files/img/BSV_star.jpg" width="600"><br>
 </center>
 
 
