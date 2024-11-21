@@ -56,4 +56,16 @@ This project only provides the latest version of the manuscript and the main rel
 
 本项目只提供书稿最新版和主要相关文档，其他所有资料以及原书均可在互联网上检索并下载，或者，到【大系统观】官网：http://www.holomind.com.cn 下载。
 
-<img alt="BSV Logo"  src="files/img/BSV_Book_300.jpg">
+<img alt="BSV Logo"  src="files/img/BSV_Cover-500.jpg"><br>
+<img alt="BSV Logo"  src="files/img/BSV_back_cover-500.jpg"><br>
+<img alt="BSV Logo"  src="files/img/BSV_star.jpg"><br>
+
+
+
+
+
+
+
+
+
+
