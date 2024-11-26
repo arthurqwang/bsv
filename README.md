@@ -15,7 +15,7 @@ The concept of 'Big Systems View' is formally and explicitly proposed in this bo
 
 The author uses the simplest words, minimizes the size, abandons mathematical formulas, and combines practical technical and management work with the current domestic and international economic and social situation to explain the basic principles of systems theory in a clear and concise manner. While summarizing the predecessors, I also discuss my own thoughts, experiences, innovative ideas, methodologies, and other aspects. It mainly includes theoretical methods, innovative practice and reflection: system theory, classic books introduction, organization and self-organization, loose coupling and tight coupling, standard and self-standard, Internetism, holographic organic system theory, system structure dynamics, information productivity, digital oilfield based-on Big Systems View, the essence of Internet+, artificial intelligence, and further philosophical thinking.
 
-This book is aimed at the general public people, whether ordinary managers and technicians, leaders and experts, or even ordinary people, they will gain something, but the core target readers are those who want to do big things.
+This book is aimed at the general public people, whether ordinary managers and technicians, leaders and experts, or even ordinary people, they will gain something, but the core target readers are those who want to do big things. 
 
 ## Next Plan
 ① Upgrade to version 2.0.  Integrate the author's new ideas and everyone's ideas since the release of version 1.0.
