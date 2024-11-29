@@ -24,6 +24,23 @@
     color:blue;
     text-decoration:none;
   }
+
+  /* 设置BSV LOGO呼吸动画 */
+  .breathing-image {
+            animation: pulse 2s infinite;  /* 调用动画 */
+            animation-delay: 0s;  /* 先等待5秒 */
+            animation-duration: 6s; /* 整个动画的时长 */
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);  /* 开始和结束的缩放值 */
+                filter: brightness(100%);  /* 开始和结束的亮度 */
+            }
+            50% {
+                transform: scale(0.97);  /* 中间的缩放值 */
+                filter: brightness(30%);  /* 中间的亮度 */
+            }
+        }
 </style> 
 </head> 
 
@@ -31,7 +48,7 @@
     <canvas id="canvas"></canvas>
 
     <div id="DIV_BSV_LOGO" align="center" ; style="display: block; padding-left: 0px; padding-right:0px; padding-top:0px; padding-bottom:0px; position: absolute; left: 700px; top:50px; color:yellow; background-color: none; border: 0px solid #FF0000; font-size:20px; z-index:1000;">
-        <img id="BSV_LOGO" src="img/bsv_logo.png" alt="大系统观 Big Systems View" width="400"><br><br>
+        <img id="BSV_LOGO" class="breathing-image" src="img/bsv_logo.png" alt="大系统观 Big Systems View" width="400"><br><br>
         <a href="http://www.holomind.com.cn/ahmm/ahmm.html" target="_blank">
             <img id="AHMM_LOGO" src="img/ahmm_logo.png" alt="阿色全息脑图" width="200"><br>
             <text style="font-size:36px;">阿色全息脑图</text><br>
