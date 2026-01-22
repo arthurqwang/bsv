@@ -3,14 +3,14 @@
     <!-- 设置语言。机器人等根据此设置调整输出文字，以及其他显示 -->
     <script>
         // hmpg_robot/hmpg_robot_call_llm.js 中使用下列定义
-        const SITE_LANGUAGE = 'ZH'; // 'ZH'表示中文，'EN'表示英文。设置提示词时使用。
-        const CLIENT_TYPE = '1'; // '1'表示电脑浏览器,'2'表示手机app。设置显示样式和LLM提示词时使用。
+        const SITE_LANGUAGE = 'EN'; // 'ZH'表示中文，'EN'表示英文。设置提示词时使用。
+        const CLIENT_TYPE = '1'; // '1'表示电脑浏览器,'2'表示手机app。设置显示样式和LLM提示词时使用。        
     </script>
 <head> 
 <meta charset="UTF-8"> 
-<meta name="keywords" content="本网站是大系统观的官方网站,最具权威性,大系统观,BSV,Big Systems View,王权,阿色树新风,全息脑图,ahmm,Arthur's Holographic Mind Map,阿色全息脑图,bjbq20120919xj,系统,系统论,系统科学,系统工程,系统思维,系统观,大信息观,全息,系统结构,哲学,思维科学,数字油田,智能油田,智慧油田,数智油田,智能数字油田开放论坛,iDOF,全息有机系统论,系统结构动力学,融合经典系统理论和前沿科技思想，创建与时俱进的大系统新哲学">
+<meta name="keywords" content="This Web is the official web of Big systems View, A New System Philosophy Integrating Classic System Theories and Pioneer Insights from Sci & Tech,大系统观,BSV,Big Systems View,王权,阿色树新风,全息脑图,ahmm,Arthur's Holographic Mind Map,阿色全息脑图,bjbq20120919xj,系统,系统论,系统科学,系统工程,系统思维,系统观,大信息观,全息,系统结构,哲学,思维科学,数字油田,智能油田,智慧油田,数智油田,智能数字油田开放论坛,iDOF,全息有机系统论,系统结构动力学">
 <meta name="robots" content="index, follow">
-<title>大系统观 [Big Systems View]</title>
+<title>Big Systems View</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 <!-- 预加载挖宝动画 -->
 <link rel="preload" href="img/hints/wabao.gif" as="image">
@@ -426,7 +426,7 @@
         to { opacity: 1; }  
     }
 
-    /* 复制机器人对话时，冒泡Toast1通知样式 */
+    /* 复制机器人对话时，冒泡Toast通知样式 */
     #toast1 {
         visibility: hidden;
         min-width: 250px;
@@ -449,8 +449,8 @@
     #toast1.show {
         visibility: visible;
         opacity: 1;
-    }   
-    
+    }    
+
     /* 清除、新启动机器人对话时，冒泡Toast2通知样式 */
     #toast2 {
         visibility: hidden;
@@ -481,7 +481,7 @@
 </head> 
 
 <body><div  class="fade-in">
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href='index_english.html' target='_self'>➔ [English]</a>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href='index.html' target='_self'>➔ [中文]</a>
     <div id="placeholder"></div> <!-- 占位符: 返回顶部时使用，无其他用途 -->
     <!-- 星空画布。即使不执行星空代码，也要保留，用于计算整个网页布局 -->
     <canvas id="canvas"></canvas>
@@ -496,23 +496,23 @@
     <!---**********************************************************************************************************************************************************************-->
     <div id="DIV_BSV_LOGO_AND_ROBOT" align="center" style="display: block; position: absolute; left: 700px; width:400px; top:50px; color:yellow; background-color:transparent; border: 0px solid #FF0000; font-size:20px; z-index:1000;">
         <a href='img/logo_explain.png' target='_blank'>
-            <img src="img/大系统观书法5.png"  alt="大系统观：融合经典系统理论和前沿科技思想，创建与时俱进的大系统新哲学" style="position: absolute; left: -100px; top:180px; width: 600px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="img/大系统观英文2.png"  alt="Big Systems View: A New System Philosophy Integrating Classic System Theories and Pioneer Insights from Sci & Tech" style="position: absolute; left: -100px; top:180px; width: 600px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </a>
         
-        <!-- 小B博士视频，点击后显示AI对话 -->
+        <!-- 小B博士Video，点击后显示AI对话 -->
         <div id="Dr_B_Div" class="video-container" style="position: absolute; left: 115px; top:745px; cursor: pointer; z-index: 11000;" title="点击与【小B博士】对话" onclick="hideDrB();">  
             <video id="Dr_B_Video_0" width="60" height="100" autoplay muted>
                 <source src="img/Dr_B.mp4" type="video/mp4">
-                您的浏览器不支持HTML5视频标签。
+                您的浏览器不支持HTML5Video标签。
             </video>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const video = document.getElementById('Dr_B_Video_0');
                     
-                    // 确保视频可以自动播放（需要muted属性）
+                    // 确保Video可以自动播放（需要muted属性）
                     video.muted = true;
                     
-                    // 10秒后重新播放（无论当前视频是否结束）
+                    // 10秒后重新播放（无论当前Video是否结束）
                     setTimeout(function() {
                         video.currentTime = 0;
                         video.play();
@@ -528,7 +528,7 @@
 
         </div>
         <div id="Dr_B_Greeting" class="breathing-image" style="position: absolute; left: 230px; top:750px; cursor: pointer;" onclick="hideDrB();">  
-            <img src="img/Dr_B_Greeting.png" width="200" alt="我是【小B博士】，大系统观AI助手。有事就找我哦！" title="点击与【小B博士】对话">
+            <img src="img/Dr_B_Greeting_English.png" width="200" alt="我是【小B博士】，大系统观AI助手。有事就找我哦！" title="点击与【小B博士】对话">
         </div>
         <script>
             function hideDrB() {
@@ -543,16 +543,16 @@
             <div id="animatedDiv" class="video-container"  title="点击与【小B博士】对话" onclick="callQuestion();">
                 <video id="Dr_B_Video" width="100" height="100" autoplay muted>
                     <source src="img/Dr_B.mp4" type="video/mp4">
-                    您的浏览器不支持HTML5视频标签。
+                    您的浏览器不支持HTML5Video标签。
                 </video>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         const video = document.getElementById('Dr_B_Video');
                         
-                        // 确保视频可以自动播放（需要muted属性）
+                        // 确保Video可以自动播放（需要muted属性）
                         video.muted = true;
                         
-                        // 10秒后重新播放（无论当前视频是否结束）
+                        // 10秒后重新播放（无论当前Video是否结束）
                         setTimeout(function() {
                             video.currentTime = 0;
                             video.play();
@@ -567,10 +567,10 @@
                 </script>
             </div>
             
-            <textarea id="one-sentence-input-from-hmpg" class="tutorial-button" style="width: 400px; padding-left: 10px; background-color: #ffffff; overflow: hidden;" placeholder="聊聊大系统观，或生成全息脑图，请在此输入..." onclick="this.style.opacity = '1';"></textarea>
-            <button id="question-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="与【小B博士】聊天" onclick="this.style.opacity = '1'; callQuestion();">聊天</button>
-            <button id="one-sentence-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="AI智能体一句话生成【阿色全息脑图 AHMM】" onclick="this.style.opacity = '1'; callOneSentence2AHMM();">生图</button>
-            <button id="else-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="AI智能体更多方式生成【阿色全息脑图 AHMM】" onclick="this.style.opacity = '1'; window.open('http://www.holomind.com.cn/ahmm/ai/ai2ahmm.html', '_blank');">其他</button>
+            <textarea id="one-sentence-input-from-hmpg" class="tutorial-button" style="width: 400px; padding-left: 10px; background-color: #ffffff; overflow: hidden;" placeholder="Talk about BSV, or generate a AHMM, please enter here .." onclick="this.style.opacity = '1';"></textarea>
+            <button id="question-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="Chat with [Dr. B]" onclick="this.style.opacity = '1'; callQuestion();">Chat</button>
+            <button id="one-sentence-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="AI Agent for generating a Arthur's Holographic Mind Map (AHMM) from one sentence" onclick="this.style.opacity = '1'; callOneSentence2AHMM();">AHMM</button>
+            <button id="else-btn-from-hmpg" class="tutorial-button" style="width: 60px;" title="More AI Agents for generating Arthur's Holographic Mind Maps (AHMM)" onclick="this.style.opacity = '1'; window.open('http://www.holomind.com.cn/ahmm/ai/ai2ahmm.html', '_blank');">Else</button>
         </div>
 
         <!-- 机器人回答内容 -->
@@ -578,17 +578,17 @@
             display: none; justify-content: center; gap: 8px; margin: 0 auto; 
             color: #aaa; background-color: rgba(0, 0, 0, 0.7); border: 1px solid  rgba(0, 170, 255, 0.4); z-index: 11000; text-align: center;">
             <!-- 顶部标题 -->
-            <div id="copy-button" style="position: absolute; top: 4px; left: 600px; font-size: 20px; cursor: pointer; color: #666; transition: color 0.2s; " title="复制对话内容"
+            <div id="copy-button" style="position: absolute; top: 4px; left: 600px; font-size: 20px; cursor: pointer; color: #666; transition: color 0.2s; " title="Copy Dialogue Text"
             onmouseover="this.style.color='#0cf'" onmouseout="this.style.color='#666'">❐
             </div>
-            <div id="clear-button" style="position: absolute; top: 6px; left: 635px; font-size: 18px; cursor: pointer; color: #666; transition: color 0.2s; "  title="清除当前对话/开启新对话"
+            <div id="clear-button" style="position: absolute; top: 6px; left: 635px; font-size: 18px; cursor: pointer; color: #666; transition: color 0.2s; "  title="Clear/New Dialogue"
             onmouseover="this.style.color='#0cf'" onmouseout="this.style.color='#666'">✂ 
             </div>
-            <div style="position: absolute; top: 4px; left: 670px; font-size: 20px; cursor: pointer; color: #666; transition: color 0.2s; "  title="关闭对话框"
+            <div style="position: absolute; top: 4px; left: 670px; font-size: 20px; cursor: pointer; color: #666; transition: color 0.2s; "  title="Close Dialogue Box"
                 onmouseover="this.style.color='#0cf'" onmouseout="this.style.color='#666'" onclick="document.getElementById('answer-div').style.display='none'">✖
             </div>        
             <div style="color: #0cf;">
-                <b>关于【大系统观】与【小B博士】对话</b>
+                <b>Dialogue about BSV with Dr. B</b>
                 <hr style="width: 620px; height: 1px; margin: 2px 0; background-color: rgba(0, 170, 255, 0.4); border: none;">
             </div>
             <!-- 回答内容 -->
@@ -597,9 +597,9 @@
 
             <!-- 处理复制、清除并新建对话内容 -->
             <!-- 复制 Toast1通知 -->
-            <div id="toast1" style="position: absolute; top: 100px; height: 25px;">对话文本已复制到剪贴板</div>
+            <div id="toast1" style="position: absolute; top: 100px; height: 25px;">Dialogue text copied to clipboard</div>
             <!-- 清除 Toast2通知 -->
-            <div id="toast2" style="position: absolute; top: 100px; height: 25px;">新对话已启动，请继续...</div>
+            <div id="toast2" style="position: absolute; top: 100px; height: 25px;">New dialogue initiated, please continue...</div>
 
             <script>
                 // 复制对话内容
@@ -611,7 +611,7 @@
                     navigator.clipboard.writeText(textToCopy)
                         .then(() => {
                             // 复制成功，显示Toast1通知
-                            showToast1('对话文本已复制到剪贴板');
+                            showToast1('Dialogue text copied to clipboard');
                         })
                         .catch(err => {
                             // 如果剪贴板API不可用，使用旧方法
@@ -626,12 +626,12 @@
                                 document.body.removeChild(textarea);
                                 
                                 if (successful) {
-                                    showToast1('对话文本已复制到剪贴板');
+                                    showToast1('Dialogue text copied to clipboard');
                                 } else {
-                                    showToast1('复制失败，请手动选择文本复制', true);
+                                    showToast1('Copy failed, please manually select text to copy', true);
                                 }
                             } catch (err) {
-                                showToast1('复制失败，请手动选择文本复制', true);
+                                showToast1('Copy failed, please manually select text to copy', true);
                             }
                         });
                 });
@@ -662,7 +662,7 @@
                     // 清空对话内容
                     document.getElementById('talk-with-chatbot').innerHTML='';
                     // 显示Toast2通知
-                    showToast2('新对话已启动，请继续...');
+                    showToast2('New dialogue initiated, please continue...');
                 });
                 
                 function showToast2(message, isError = false) {
@@ -685,7 +685,7 @@
                     }, 3000);
                 }
 
-            </script>        
+            </script>
         
         </div>
 
@@ -727,19 +727,19 @@
                 <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
                 <div class="bar"></div><div class="bar"></div>
             </div>
-            <span style="color:#00ccff; font-size: 14px; opacity: 0.5; transition: opacity 0.3s; cursor: pointer;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">&nbsp;BSV主题音乐: 超越(AI创作)<img id="MUSIC_PLAY_STOP" src="img/music_play.png" style="height:16px;"><br></span>
+            <span style="color:#00ccff; font-size: 14px; opacity: 0.5; transition: opacity 0.3s; cursor: pointer;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">&nbsp;BSV Theme Music: Beyond(Created by AI)<img id="MUSIC_PLAY_STOP" src="img/music_play.png" style="height:16px;"><br></span>
             </span>
             
             <hr style="width: 100%; height: 1px; background-color: rgba(0, 170, 255, 0.4); border: none;">
-            <span style="font-size:36px; color:yellow; font-weight: bold; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">
-            大同世界 和而不同
+            <span style="font-size:24px; color:yellow; font-weight: bold; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">
+            A World of Great Harmony from Big Systems View
             </span>
             <br>
-            <span style="font-size:16px; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">A World of Great Harmony from Big Systems View</span>
+            <span style="font-size:16px; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'"></span>
             <hr style="width: 100%; height: 1px; background-color: rgba(0, 170, 255, 0.4); border: none;">
             <br><br>
             <a href="hmpg_screen_shots/大系统观网站历史.html" target="_blank">
-                <span style="font-size:16px; color:#00ccff; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">不要忘了来时的路</span>
+                <span style="font-size:16px; color:#00ccff; opacity: 0.5; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">Never forget the way back</span>
             </a>
 
         </div>
@@ -758,68 +758,106 @@
 
         <a href="http://www.holomind.com.cn/ahmm/ahmm.html" target="_blank">
             <img id="AHMM_LOGO" src="img/ahmm_logo.png" alt="阿色全息脑图" width="200"><br>
-            <span style="font-size:36px; color:yellow; font-weight: bold;">AHMM <span style="color:red;">ai<sup>+</sup></span><br>阿色全息脑图</span><br>
+            <span style="font-size:36px; color:yellow; font-weight: bold;">AHMM <span style="color:red;">ai<sup>+</sup></span><br><span style="font-size:16px;">Arthur's Holographic Mind Map</span></span><br>
 
             <!---******************************************************************************************************************************************************************************************-->
             <!---********************************************************************************** 设置AHMM版本号 ***********************************************************************************-->
             <span style="font-size:16px;">Version ai<sup>+</sup>2025.12.9.19</span><br>
-            <button class="tutorial-button" style="opacity: 1;">在线制作</button>
+            <button class="tutorial-button" style="opacity: 1;">Online</button>
         </a>&nbsp;&nbsp;
         <a href="https://pan.baidu.com/s/1uRCROdrUoCALfbGx02mIcw?pwd=v4gz" target="_blank">
-            <button class="tutorial-button" style="opacity: 1;">视频教程</button>
+            <button class="tutorial-button" style="opacity: 1;">Video Tutorial</button>
         </a>
         <br>
         <a href="ahmm/downloads/ahmm阿色全息脑图ai+2025_12_9_19.zip">
-            <button class="tutorial-button" style="width: 190px; opacity: 1;">下载离线版及升级工具</button></a><br>
-        <a href="ahmm/downloads/AHMM_ai_plus_all_2025_12_9_19.zip"><button class="tutorial-button" style="width: 190px; opacity: 1;">下载部署安装文件包</button></a>
+            <button class="tutorial-button" style="width: 190px; opacity: 1;">Download Offline Version</button></a><br>
+        <a href="ahmm/downloads/AHMM_ai_plus_all_2025_12_9_19.zip"><button class="tutorial-button" style="width: 190px; opacity: 1;">Installation Package</button></a>
         <br><br>
         <a href="http://www.holomind.com.cn/ahmm/ai/ai2ahmm.html" target="_blank">
-            <span style="color:red;">▶</span> <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">AI一键生成全息脑图</span><span style="color:red;">◀</span><br>
-            <button class="tutorial-button" style="width: 100px; opacity: 1;">进入</button><br>
+            <span style="color:red;">▶</span> <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">AI Generates AHMM</span><span style="color:red;">◀</span><br>
+            <button class="tutorial-button" style="width: 100px; opacity: 1;">Enter</button><br>
             <img src="img/doc2ahmm.png" style="width: 60%; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'"><br>
         </a>
 
         <!---******************************************************************** 在 last_version_no.js 中记录最新版本号 ****************************************************************************-->
         <!---**************************************************************************************************************************************************************************************-->
 
-
-        <br><br>
+        <br><br><br><br>
+        <table border="1"  style="color:white; font-size:14px;">
+        <tr>
+            <td colspan="2" align="center">
+                <a href="https://github.com/" target="_blank"><img id="GITHUB_LOGO" src="img/github-logo.png" alt="GitHub" width="80"></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Main：</td>
+            <td align="left"><a href="https://github.com/arthurqwang" target="_blank">https://github.com/arthurqwang</a></td>
+        </tr>
+        <tr>
+            <td align="right">Mirror：</td>
+            <td align="left"><a href="https://bgithub.xyz/arthurqwang" target="_blank">https://bgithub.xyz/arthurqwang</a></td>
+        </tr>
+        <tr>
+            <td align="right">Homepage：</td>
+            <td align="left"><a href="https://arthurqwang.github.io" target="_blank">https://arthurqwang.github.io</a></td>
+        </tr>
+        <tr style="vertical-align: bottom;">
+            <td colspan="2" align="center" style="vertical-align: bottom;">
+                <br>
+                <a href="https://gitcode.com/" target="_blank"><img id="GITCODE_LOGO" src="img/gitcode-logo.png" alt="GitCode" width="160"></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Homepage：</td>
+            <td align="left"><a href="https://gitcode.com/arthurqwang" target="_blank">https://gitcode.com/arthurqwang</a></td>
+        </tr>
+        <tr style="vertical-align: bottom;">
+            <td colspan="2" align="center" style="vertical-align: bottom;">
+                <br>
+                <a href="https://www.cnblogs.com//" target="_blank"><img id="BKY_LOGO" src="img/BKY_logo.svg" alt="博客园" width="120"></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Homepage：</td>
+            <td align="left"><a href="https://www.cnblogs.com/BigSystemsView" target="_blank">https://www.cnblogs.com/BigSystemsView</a></td>
+        </tr>
+        </table>
+        <br><br><br><br>
         <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5ODg0Mzk0MQ==&action=getalbum&album_id=3815654872589090818#wechat_redirect" target="_blank">
-            <img id="BSV_FORUM_WeixinCode" src="img/bsv_forum.jpg" alt="大系统观开放论坛"  style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
+            <img id="BSV_FORUM_WeixinCode" src="img/bsv_forum.jpg" alt="大系统观开放论坛" style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
             <span style="font-size:4px;">&nbsp;</span><br>
-            微公号主要文章精选<br><br>
+            Articles on WeChat<br><br>
         </a>
-        <br>
+        <br><br>
         <a href="https://ima.qq.com/wiki/?shareId=eac25b18063ced9fe8343a828989f9d95193923367a57aa83fab2113cf9853d2" target="_blank">
-            <img id="BSV_ima" src="img/BSV_ima-code.png" alt="ima知识库：大系统观" style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
+            <img id="BSV_ima" src="img/BSV_ima-code.png" alt="ima.copilot：BSV" style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
             <span style="font-size:4px;">&nbsp;</span><br>
-            ima知识库：大系统观&数智油田<br><br>
+            ima.copilot：BSV & IDOF<br><br>
         </a>
-        <br>
+        <br><br>
         <a href="https://www.doubao.com/bot/wtYYvwg3" target="_blank">
-            <img id="DrB_Doubao" src="img/DrB-dubao-logo.png" alt="小B博士(Dr. B)豆包版" width="100" height="50"><br>
+            <img id="DrB_Doubao" src="img/DrB-dubao-logo.png" alt="Dr. B @Doubao" width="100" height="50"><br>
             <span style="font-size:4px;">&nbsp;</span><br>
-            小B博士(Dr. B)-豆包版<br><br>
+            Dr. B @Doubao<br><br>
         </a>
-        <br>
         <a href="https://www.n.cn/tools/aiagent/chat/071bf5e9539d4d938ff65c6768c09b30" target="_blank">
-            <img id="DrB_nami" src="img/DrB-nami-logo.png" alt="小B博士(Dr. B)纳米智能体" width="100" height="50"><br>
+            <img id="DrB_nami" src="img/DrB-nami-logo.png" alt="Dr. B @Nami" width="100" height="50"><br>
             <span style="font-size:4px;">&nbsp;</span><br>
-            小B博士(Dr. B)-纳米智能体<br><br>
+            Dr. B @Nami Agent<br><br>
         </a>
-        <br>
+        <br><br>
         <a href="https://www.holomind.com.cn/phone_apps/android/drb.102.android.apk" target="_blank">
-            <img id="DrB_App" src="img/share_DrB_app.jpg" alt="小B博士(Dr. B)手机APP(安卓)" style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
+            <img id="DrB_App" src="img/share_DrB_app.jpg" alt="Dr. B APP(Android)" style="width: 120px; height: auto; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(2.5)'" onmouseout="this.style.transform='scale(1)'"><br>
             <span style="font-size:4px;">&nbsp;</span><br>
-            小B博士(Dr. B)-手机App(安卓)<br><br>
-        </a>
+            Dr. B - App(Android)<br><br>
+        </a>       
         <br><br>
         <span style="font-size:16px; color:#00CCFF;">
-            本站提供所有资料均为<br>
-            免费开源 版权木有<br>
-            自由下载 自由使用<br>
-            自由复制 自由传播<br>NoCopyright ©2022-<span id="CURRENT_YEAR"></span><br>
-            备案号：黑ICP备2025043308号
+            All on this website is<br>
+            Free and Open-source<br>
+            Free Download and Free Use<br>
+            Free Replication and Free Dissemination<br>NoCopyright ©2022-<span id="CURRENT_YEAR"></span><br>
+            Record No：Hei ICP Mark 2025043308
         </span>
         <br>
         <br>
@@ -828,7 +866,7 @@
         <br><br><br><br><br>
 
         <br><br><br><br><br><br>
-        <span style="color:#395988;">在BSV星球上，挖呀挖呀挖...
+        <span style="color:#395988;">On the BSV planet, dig and dig ......
         <br><br>↓<br><br></span>
         <span style="color:#234567;">↓<br><br>↓<br><br></span>
         <span style="color:#123456;">↓<br><br></span>
@@ -845,91 +883,92 @@
     
     <div id="DIV_BSV_INFO" style="display: block; padding-left: 100px; padding-right:0px; padding-top:0px; padding-bottom:0px; position: absolute; left: 0px; top:1420px; color:white; background-color: none; border: 0px solid #FF0000; z-index:200; opacity:0.7; text-align:left;">
 
-        <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">大系统观 / 数智油田相关资料</span><br><br>
-        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">《大系统观》原著</span> <img src="img/gold.png" height="25" /><br>
+        <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">BSV / IDOF</span><br><br>
+        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">Book of Big Systems View</span> <img src="img/gold.png" height="25" /><br>
         <table border="0"  style="color:white;">
         <tr>
-        <td style="text-align: left; vertical-align: middle;"><a href="bsv/大系统观-A1.0(20160214-aqw)发布稿.pdf" target="_blank"><img src="img/BSV_book.png" height="100" /></a></td>
-        <td style="text-align: left; vertical-align: middle;">        
-        <span style="font-size:18px;  color:#ffffff; font-weight: bold;">《大系统观：看世界的大视野大思维大格局大超越》</span><br>
-        Big Systems View: Bigger outlook,bigger thinking,bigger frame,bigger promotion on the world<br>
-        开源免费电子书 V1.0版 (2016年2月14日发布)<br>
-        下载 <a href="bsv/大系统观-A1.0(20160214-aqw)发布稿.pdf" target="_blank">中文版PDF</a> / <a href="bsv/BigSystemsView-A1.0(20160214-aqw)-English-20260105.docx" target="_blank">英文版DOCX(整理中，欢迎加入)</a>
+        <td align="left"><a href="bsv/大系统观-A1.0(20160214-aqw)发布稿.pdf" target="_blank"><img src="img/BSV_book.png" height="100" /></a></td>
+        <td align="left">        
+        <span style="font-size:18px;  color:#ffffff; font-weight: bold;">Big Systems View: </span><br>
+        Bigger outlook,bigger thinking,bigger frame,bigger promotion on the world<br>
+        Open source free e-book V1.0 (released on Feb 14, 2016)<br>
+        Download <a href="bsv/大系统观-A1.0(20160214-aqw)发布稿.pdf" target="_blank">Chinese PDF</a> / <a href="bsv/BigSystemsView-A1.0(20160214-aqw)-English-20260105.docx" target="_blank">English DOCX(Editing, Welcome to join)</a>
         </td>
         </tr>
         </table>
         <br>
         <a href="idof/基于AI底座的数智油气田参考架构.html" target="_blank">
-            <img id="iDOF_LOGO" src="img/iDOF_logo.png" alt="智能数字油田开放论坛" style="width: 70%; height: auto;"></a><br>
-        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【数智油田】近期资料/报告</span><br>
-        &nbsp;&nbsp;⑴&nbsp;&nbsp;<img src="img/important.png" height="20" /> 基于AI底座的数智油气田参考架构（2024.12.29）&nbsp;&nbsp;<a href="idof/基于AI底座的数智油气田参考架构.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑵&nbsp;&nbsp;<img src="img/new.png" height="20" /> Architecture for Intelligent & Digital Oilfileds Based-on AI & BSV<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seminar on Digital & Intelligent Transformation<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For South Sudanese Training Group in NPU, 2025<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2025东油/南苏丹培训班数智油田课件）&nbsp;&nbsp; <a href="bsv/Architecture_for_Intelligent_and_Digital_Oilfileds_Based-on_AI_and_BSV_4_south-sudan_20251209.pdf" target="_blank">Download（下载）</a><br>
-        &nbsp;&nbsp;⑶&nbsp;&nbsp;<img src="img/new.png" height="20" /> 数智企业大系统新范式及油气大模型部署应用策略<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2025东油/中国石油渤海装备技术专家培训班课件&nbsp;&nbsp; <a href="bsv/渤海装备技术班_202510/ahmm-数智企业新范式及油气大模型部署应用.html" target="_blank">查看</a> <a href="bsv/数智企业大系统新范式及油气大模型部署应用策略-渤海装备技术骨干班.zip" target="_blank">下载</a><br>
-        &nbsp;&nbsp;⑷&nbsp;&nbsp;<img src="img/new.png" height="20" /> 油气大模型部署应用策略讨论<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石油圈-2025能源说公开课线上讲座课件&nbsp;&nbsp; <a href="bsv/OIL_LLM_DISCUSS/ahmm-油气大模型部署应用策略讨论.html" target="_blank">查看</a> <a href="bsv/油气大模型部署应用策略讨论20250308.zip" target="_blank">下载</a><br>
-        &nbsp;&nbsp;⑸&nbsp;&nbsp;<img src="img/new.png" height="20" /> 探索以AI为底座的企业数智化大系统新范式<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石油圈-2024能源说公开课线上讲座课件&nbsp;&nbsp; <a href="bsv/EXPL_PRDM_IDOF/ahmm-探索以AI为底座的企业数智化大系统新范式.html" target="_blank">查看</a> <a href="bsv/探索以AI为底座的企业数智化大系统新范式-20241226.zip" target="_blank">下载</a> <a href="https://pan.baidu.com/s/11yE9g_9ywBrXV8JDYIpBtg?pwd=n6k5" target="_blank">视频</a><br>
-        &nbsp;&nbsp;⑹&nbsp;&nbsp;<img src="img/important.png" height="20" /> AI背景下对企业数智化转型发展的思考<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地质录井公司-2024数字化知识赋能讲座课件&nbsp;&nbsp; <a href="bsv/AI_GEOLOGGING/ahmm-AI背景下对企业数智化转型发展的思考（1）.html" target="_blank">查看</a> <a href="bsv/AI背景下对企业数智化转型发展的思考（在录井公司汇报）-20241122.zip" target="_blank">下载</a><br>
-        &nbsp;&nbsp;⑺&nbsp;&nbsp;<img src="img/important.png" height="20" /> 数智油田转型发展的大系统观<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;铁人学院-2024油田公司数字化转型培训班课件&nbsp;&nbsp; <a href="bsv/数智油田转型发展的大系统观-油田公司数字化转型培训班-铁人学院-20241114.zip" target="_blank">下载</a><br>
-        &nbsp;&nbsp;⑻&nbsp;&nbsp;<img src="img/important.png" height="20" />忒修斯之船：AI背景下对数智油田转型发展的思考：东北石油大学<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智能数字油田开放论坛-2024年会主题报告&nbsp;&nbsp; <a href="bsv/TEXIUSI_SHIP/ahmm-忒修斯之船：AI背景下对数智油田转型发展的思考.html" target="_blank">查看</a> <a href="bsv/忒修斯之船：AI背景下对数智油田转型发展的思考-20241122.zip" target="_blank">下载</a> <a href="https://www.toutiao.com/video/7407622146647654950/" target="_blank">视频</a><br>
-        &nbsp;&nbsp;⑼&nbsp;&nbsp;<img src="img/gold.png" height="20" />大庆油田有限责任公司数字油田模式及发展战略研究<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天津大学毕业论文-2003&nbsp;&nbsp; <a href="bsv/大庆油田有限责任公司数字油田模式及发展战略研究_天津大学毕业论文_2025.zip" target="_blank">下载</a><br><br>
+            <img id="iDOF_LOGO" src="img/iDOF_logo_english.png" alt="Open Forum for Intelligent Digital Oil Fields" style="width: 70%; height: auto;"></a><br>
+        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【IDOF】Recent Information/Reports</span><br>
+        &nbsp;&nbsp;⑴&nbsp;&nbsp;<img src="img/important.png" height="20" /> Architecture for Intelligent & Digital Oilfileds Based-on AI<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Dec 29, 2024)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="idof/基于AI底座的数智油气田参考架构.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑵&nbsp;&nbsp;<img src="img/new.png" height="20" /> Architecture for Intelligent & Digital Oilfileds Based-on AI & BSV<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seminar on Digital & Intelligent Transformation<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For South Sudanese Training Program in NPU, 2025 
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/Architecture_for_Intelligent_and_Digital_Oilfileds_Based-on_AI_and_BSV_4_south-sudan_20251209.pdf" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑶&nbsp;&nbsp;<img src="img/new.png" height="20" /> New BSV Paradigm of Intelligent Enterprises and Deployment and Application Strategies of Oil & Gas LLMs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Expert Training Course for Bohai Equipment Tech of PetroChina, in Northeast Petroleum University in 2025<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/渤海装备技术班_202510/ahmm-数智企业新范式及油气大模型部署应用.html" target="_blank">View</a> <a href="bsv/数智企业大系统新范式及油气大模型部署应用策略-渤海装备技术骨干班.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑷&nbsp;&nbsp;<img src="img/new.png" height="20" /> Discussion on Deployment and Application Strategies of Oil & Gas LLMs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open Course Online Lecture, Oil Circle-2025 Energy Talk<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/OIL_LLM_DISCUSS/ahmm-油气大模型部署应用策略讨论.html" target="_blank">View</a> <a href="bsv/油气大模型部署应用策略讨论20250308.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑸&nbsp;&nbsp;<img src="img/new.png" height="20" /> Exploring a New BSV Paradigm of Intelligent Enterprises Based on AI<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open Course Online Lecture, Oil Circle-2024 Energy Talk<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/EXPL_PRDM_IDOF/ahmm-探索以AI为底座的企业数智化大系统新范式.html" target="_blank">View</a> <a href="bsv/探索以AI为底座的企业数智化大系统新范式-20241226.zip" target="_blank">Download</a> <a href="https://pan.baidu.com/s/11yE9g_9ywBrXV8JDYIpBtg?pwd=n6k5" target="_blank">Video</a><br>
+        &nbsp;&nbsp;⑹&nbsp;&nbsp;<img src="img/important.png" height="20" /> Thoughts on the Transformation and Development of Intelligent Enterprises under the Background of AI<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digital Empowerment Lecture, Daqing Geological Logging Co., 2024<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/AI_GEOLOGGING/ahmm-AI背景下对企业数智化转型发展的思考（1）.html" target="_blank">View</a> <a href="bsv/AI背景下对企业数智化转型发展的思考（在录井公司汇报）-20241122.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑺&nbsp;&nbsp;<img src="img/important.png" height="20" /> Big Systems View of Transformation and Development of IDOF<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Training Course for Digital Transformation of Daqing Oilfield Company, in Ironman Academy, 2024<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/数智油田转型发展的大系统观-油田公司数字化转型培训班-铁人学院-20241114.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑻&nbsp;&nbsp;<img src="img/important.png" height="20" />Ship of Theseus: Reflections on the Transformation and Development of IDOF under the Background of AI<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keynote Report for Intelligent & Digital Oilfield Open Forum-2024, NPU<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/TEXIUSI_SHIP/ahmm-忒修斯之船：AI背景下对数智油田转型发展的思考.html" target="_blank">View</a> <a href="bsv/忒修斯之船：AI背景下对数智油田转型发展的思考-20241122.zip" target="_blank">Download</a> <a href="https://www.toutiao.com/video/7407622146647654950/" target="_blank">Video</a><br>
+        &nbsp;&nbsp;⑼&nbsp;&nbsp;<img src="img/gold.png" height="20" />Research on the Modes and the Developing Strategies of Digital Oilfield of Daqing Oilfield Co., Ltd.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master's Thesis, Tianjin University, 2003<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/大庆油田有限责任公司数字油田模式及发展战略研究_天津大学毕业论文_2025.zip" target="_blank">Download</a><br><br>
         
-        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【大系统观】课件/课程资料/相关资料</span><br>
-        &nbsp;&nbsp;⑴&nbsp;&nbsp;<img src="img/new.png" height="20" /> 大系统观管理哲学（第3版）<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2025.10中国石油渤海装备领导干部培训班/2025.4-5东北石油大学MBA课件<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/BSV_MNGT_PHI/ahmm-大系统观管理哲学.html" target="_blank">查看</a> 下载：<a href="bsv/大系统观管理哲学_第3版_全息脑图-20251018.zip" target="_blank">AHMM</a>/<a href="bsv/大系统观管理哲学_第3版_PPT-20251018.zip" target="_blank">PPT</a><br>
-        &nbsp;&nbsp;⑵&nbsp;&nbsp;<img src="img/new.png" height="20" /> 企业-市场-政府大系统：市场经济与现代企业制度(上)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2025.9-10东北石油大学MBA公共课课件(4讲16学时/A、B班)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下载：
-        <a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第1讲-共4讲16学时_20250906.zip" target="_blank">第1讲</a>
-        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第2讲-共4讲16学时_20250906.zip" target="_blank">第2讲</a>
-        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第3讲-共4讲16学时_20250906.zip" target="_blank">第3讲</a>
-        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第4讲-共4讲16学时_20250906.zip" target="_blank">第4讲</a>
-        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-精简版_20250928.zip" target="_blank">精简版</a>
-        &nbsp;&nbsp;作业：<a href="https://www.holomind.com.cn/ahmm/upload_ahmm/upload_ahmm.html?dir=2025东油MBA作业" target="_blank">上传</a>&nbsp;/&nbsp;<a href="ahmm/全部脑图文件/2025东油MBA作业/" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑶&nbsp;&nbsp;<img src="img/new.png" height="20" /> 守业靠团队 创业靠团伙：用大系统观创立自己的创造哲学、方法论和工具箱<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2025全国石油高校双创联盟讲座(西南石油大学主办)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/SHUANGCHUANG/ahmm-守业靠团队_创业靠团伙.html" target="_blank">查看</a> 下载：<a href="bsv/守业靠团队_创业靠团伙_全息脑图_20250327.zip" target="_blank">AHMM</a>/<a href="bsv/守业靠团队_创业靠团伙_PPT_20250327.zip" target="_blank">PPT</a><br>
-        &nbsp;&nbsp;⑷&nbsp;&nbsp;<img src="img/important.png" height="20" />大系统观：关于信息、大数据、区块链、AI、元宇宙以及人等复杂系统的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;思考与探索<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022.9东北石油大学研究生课程，共3讲&nbsp;&nbsp;&nbsp;&nbsp;PPT课件：
-        <a href="bsv/大系统观：2022年9月东油研究生讲课3讲课件.zip">下载</a><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程视频录屏，每讲约4小时，共12小时：
-        <a href="https://v.youku.com/v_show/id_XNTkwNDE4MTIxNg==.html" target="_blank">第1讲</a> &nbsp;&nbsp;
-        <a href="https://v.youku.com/v_show/id_XNTkwNzY1NDI0NA==.html" target="_blank">第2讲</a> &nbsp;&nbsp;
-        <a href="https://v.youku.com/v_show/id_XNTkwODE2MzQzMg==.html" target="_blank">第3讲</a><br>
-        &nbsp;&nbsp;⑸数智之道：从大系统观到大信息观<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022铁人学院信息化项目管理培训课件 <a href="bsv/数智之道：从大系统观到大信息观-铁人学院-信息技术培训课件-20221125.zip" target="_blank">下载</a><br>
-        &nbsp;&nbsp;⑹阿色树新风之大系统观视频：共6集，每集约30分钟<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19rsx4wmj5.html" target="_blank">第1集</a>&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19rt42ltxl.html" target="_blank">第2集</a>&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19rt4s7s59.html" target="_blank">第3集</a>&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19rt1p43ud.html" target="_blank">第4集</a>&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19rt2vvfhl.html" target="_blank">第5集</a>&nbsp;&nbsp;
-        <a href="https://www.iqiyi.com/w_19ru77g3l9.html" target="_blank">第6集</a>&nbsp;&nbsp;
+        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【BSV】Coursewares/Materials</span><br>
+        &nbsp;&nbsp;⑴&nbsp;&nbsp;<img src="img/new.png" height="20" /> Management Philosophy of BSV (3rd Edition)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leadership Training Course for Bohai Equipment Tech of PetroChina, and MBA Course in Northeast Petroleum University, 2025<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/BSV_MNGT_PHI/ahmm-大系统观管理哲学.html" target="_blank">View</a> Download：<a href="bsv/大系统观管理哲学_第3版_全息脑图-20251018.zip" target="_blank">AHMM</a>/<a href="bsv/大系统观管理哲学_第3版_PPT-20251018.zip" target="_blank">PPT</a><br>
+        &nbsp;&nbsp;⑵&nbsp;&nbsp;<img src="img/new.png" height="20" /> Big System of Enterprise, Market and Government: Market Economy and Modern Enterprise Structure (Part 1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MBA Public Course of Northeast Petroleum University (4 lectures, 16 class hours/Class A&B), 2025<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download：Part 
+        <a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第1讲-共4讲16学时_20250906.zip" target="_blank">1</a>
+        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第2讲-共4讲16学时_20250906.zip" target="_blank">2</a>
+        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第3讲-共4讲16学时_20250906.zip" target="_blank">3</a>
+        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-第4讲-共4讲16学时_20250906.zip" target="_blank">4</a>
+        &nbsp;&nbsp;<a href="bsv/企业-市场-政府大系统(上)_东油MBA课程-4讲16学时_202509/企业-市场-政府大系统(上)_东油MBA课程-精简版_20250928.zip" target="_blank">Brief Edition</a>
+        &nbsp;&nbsp;Homework：<a href="https://www.holomind.com.cn/ahmm/upload_ahmm/upload_ahmm.html?dir=2025东油MBA作业" target="_blank">Upload</a>&nbsp;/&nbsp;<a href="ahmm/全部脑图文件/2025东油MBA作业/" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑶&nbsp;&nbsp;<img src="img/new.png" height="20" /> Keeping the Business Depends on the Team and Starting the Business Depends on the Group: create your own creative philosophy, methodology and toolbox with the Big Systems View<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lecture on Innovation and Entrepreneurship Alliance of Petroleum Universities in China  (hosted by Southwest Petroleum University)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bsv/SHUANGCHUANG/ahmm-守业靠团队_创业靠团伙.html" target="_blank">View</a> Download：<a href="bsv/守业靠团队_创业靠团伙_全息脑图_20250327.zip" target="_blank">AHMM</a>/<a href="bsv/守业靠团队_创业靠团伙_PPT_20250327.zip" target="_blank">PPT</a><br>
+        &nbsp;&nbsp;⑷&nbsp;&nbsp;<img src="img/important.png" height="20" />Big Systems View: Reflections and Explorations on Complex Systems Such as Information, Big Data, Blockchain, AI, Metaverse and humans etc.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graduate Course of Northeast Petroleum University, Sept, 2022, 3 lectures&nbsp;&nbsp;&nbsp;&nbsp;PPT：
+        <a href="bsv/大系统观：2022年9月东油研究生讲课3讲课件.zip">Download</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Course Video Recording (each lecture lasts about 4 hours, totaling 12 hours)：Episode 
+        <a href="https://v.youku.com/v_show/id_XNTkwNDE4MTIxNg==.html" target="_blank">1</a> &nbsp;&nbsp;
+        <a href="https://v.youku.com/v_show/id_XNTkwNzY1NDI0NA==.html" target="_blank">2</a> &nbsp;&nbsp;
+        <a href="https://v.youku.com/v_show/id_XNTkwODE2MzQzMg==.html" target="_blank">3</a><br>
+        &nbsp;&nbsp;⑸ The Way of Intelligence: From a Big Systems View to a Big Information View<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT Projects Management Training in Ironman College, 2022 PPT: <a href="bsv/数智之道：从大系统观到大信息观-铁人学院-信息技术培训课件-20221125.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑹ Arthur Tree New Bee: Big Systems View, Video: 6 episodes, each lasting 30 minutes: 
+        &nbsp;
+        <a href="https://www.iqiyi.com/w_19rsx4wmj5.html" target="_blank">1</a>&nbsp;&nbsp;
+        <a href="https://www.iqiyi.com/w_19rt42ltxl.html" target="_blank">2</a>&nbsp;&nbsp;
+        <a href="https://www.iqiyi.com/w_19rt4s7s59.html" target="_blank">3</a>&nbsp;&nbsp;
+        <a href="https://www.iqiyi.com/w_19rt1p43ud.html" target="_blank">4</a>&nbsp;&nbsp;
+        <a href="https://www.iqiyi.com/w_19rt2vvfhl.html" target="_blank">5</a>&nbsp;&nbsp;
+        <a href="https://www.iqiyi.com/w_19ru77g3l9.html" target="_blank">6</a>&nbsp;&nbsp;
         <br>
-        &nbsp;&nbsp;⑺大系统观：信息技术公司领导干部培训班讲课录音：共4集，每集约60分钟<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://www.qingting.fm/channels/259719/programs/9354044" target="_blank">第1集</a>&nbsp;&nbsp;
-        <a href="https://www.qingting.fm/channels/259719/programs/9354090" target="_blank">第2集</a>&nbsp;&nbsp;
-        <a href="https://www.qingting.fm/channels/259719/programs/9354099" target="_blank">第3集</a>&nbsp;&nbsp;
-        <a href="https://www.qingting.fm/channels/259719/programs/9354102" target="_blank">第4集</a>&nbsp;&nbsp;
+        &nbsp;&nbsp;⑺ Big Systems View: Lecture Recording of Leadership Training Class of Daqing IT Company : 4 audios in total, about 60 minutes each:&nbsp;&nbsp;
+        <a href="https://www.qingting.fm/channels/259719/programs/9354044" target="_blank">1</a>&nbsp;&nbsp;
+        <a href="https://www.qingting.fm/channels/259719/programs/9354090" target="_blank">2</a>&nbsp;&nbsp;
+        <a href="https://www.qingting.fm/channels/259719/programs/9354099" target="_blank">3</a>&nbsp;&nbsp;
+        <a href="https://www.qingting.fm/channels/259719/programs/9354102" target="_blank">4</a>&nbsp;&nbsp;
         <br>
-        &nbsp;&nbsp;⑻大系统观：文化集团领导干部培训班讲课录音：共1集，2.5小时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://www.qingting.fm/channels/263437/programs/9516729" target="_blank">播放</a><br>
-        &nbsp;&nbsp;⑼大系统观下的元宇宙-元石油-元油田：2022数智能源高峰论坛第一期演讲：<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共2部分&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://v.youku.com/v_show/id_XNTg4MDY5NTExMg==.html" target="_blank">第1部分</a>&nbsp;&nbsp;
-        <a href="https://v.youku.com/v_show/id_XNTg4MDY5NjA1Mg==.html" target="_blank">第2部分</a>
+        &nbsp;&nbsp;⑻ Big Systems View: Lecture Recording of Leadership Training Class of Daqing Culture Group Co., 2.5 hours&nbsp;&nbsp;&nbsp;
+        <a href="https://www.qingting.fm/channels/263437/programs/9516729" target="_blank">Play audio</a><br>
+        &nbsp;&nbsp;⑼ Metaverse, MetaOil, and MetaOilfield under the Big Systems View<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Speech at the First Session of the Smart Energy Summit Forum, 2022 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 videos in total:&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://v.youku.com/v_show/id_XNTg4MDY5NTExMg==.html" target="_blank">1</a>&nbsp;&nbsp;
+        <a href="https://v.youku.com/v_show/id_XNTg4MDY5NjA1Mg==.html" target="_blank">2</a>
         <br>
-        &nbsp;&nbsp;⑽从大系统观到大信息观：大庆油田数字-智能-智慧油田建设的系统思考<br>
+        &nbsp;&nbsp;⑽ From Big Systems View to Big Information View: Systematic Thinking on the Digital & Intelligent Oilfield Construction in Daqing Oilfield<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        2020第二届全球数字化油气大会视频发言
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://v.youku.com/v_show/id_XNDk5OTg4NjUzNg==.html" target="_blank">播放</a><br>
-        &nbsp;&nbsp;⑾互联网+的精神实质：中国智能油田香山高峰论坛2016演讲视频 <a href="https://v.youku.com/v_show/id_XMTYzMzY4OTE5Mg==.html" target="_blank">播放</a><br>
-        &nbsp;&nbsp;⑿&nbsp;&nbsp;<img src="img/important.png" height="20" /> 大系统观是马克思主义（资料集锦） <a href="bsv/大系统观是马克思主义.zip" target="_blank">下载PPT</a><br>
-        &nbsp;&nbsp;⒀&nbsp;&nbsp;<img src="img/important.png" height="20" /> 共产党员要有大系统观：2016两学一做党课课件（共产党员网收录）<a href="bsv/共产党员要有大系统观-两学一做党课-王权-20161028.zip" target="_blank">下载PPT</a><br>
-        &nbsp;&nbsp;⒁大系统观全息注〈道德经〉：免费电子书(上篇已结)&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5ODg0Mzk0MQ==&action=getalbum&album_id=3228295262679515137#wechat_redirect" target="_blank">查看</a>&nbsp;&nbsp;<a href="bsv/大系统观全息注道德经.pdf" target="_blank">下载</a>&nbsp;&nbsp;<a href="bsv/视频/大系统观全息注道德经" target="_blank">视频</a><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下篇由邓遵红老师继续注解&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIzOTAwOTU2OA==&action=getalbum&album_id=3296230415707553792&scene=173&subscene=&sessionid=svr_a1db3e68a05&enterid=1727399302&from_msgid=2657223818&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank">阅读已完成部分（微信公众号）</a><br>
-        &nbsp;&nbsp;⒂大系统观其他相关开源资料：<a href="https://pan.baidu.com/s/1f90NQ9X_7YprUXT5sRatcg?pwd=dxtg" target="_blank">百度网盘/提取码：dxtg</a> / <a href="bsv" target="_blank">本站内</a><br><br>
+        Video Speech at the 2nd Global Digital Oil & Gas Conference, 2020
+        &nbsp;&nbsp;
+        <a href="https://v.youku.com/v_show/id_XNDk5OTg4NjUzNg==.html" target="_blank">Play</a><br>
+        &nbsp;&nbsp;⑾ Essence of Internet+<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Video Speech at China Intelligent Oilfield Xiangshan Summit Forum, 2016 <a href="https://v.youku.com/v_show/id_XMTYzMzY4OTE5Mg==.html" target="_blank">Play</a><br>
+        &nbsp;&nbsp;⑿&nbsp;&nbsp;<img src="img/important.png" height="20" /> The Big Systems View is Marxism (data collection) <a href="bsv/大系统观是马克思主义.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⒀&nbsp;&nbsp;<img src="img/important.png" height="20" /> Communist Party Members Should Have a Big Systems View: Party Lesson Course for "Two Learning and One Doing, 2016"  (included on the Communist Party Member Website) <a href="bsv/共产党员要有大系统观-两学一做党课-王权-20161028.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⒁ "Tao Te Ching" with Holographic Notes by BSV : free e-book (first part finished)&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5ODg0Mzk0MQ==&action=getalbum&album_id=3228295262679515137#wechat_redirect" target="_blank">View</a>&nbsp;&nbsp;<a href="bsv/大系统观全息注道德经.pdf" target="_blank">Download</a>&nbsp;&nbsp;<a href="bsv/Video/大系统观全息注道德经" target="_blank">Video</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remaining part further annotated by Prof. Zunhong DENG&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIzOTAwOTU2OA==&action=getalbum&album_id=3296230415707553792&scene=173&subscene=&sessionid=svr_a1db3e68a05&enterid=1727399302&from_msgid=2657223818&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank">View</a><br>
+        &nbsp;&nbsp;⒂ Other related open-source materials on Big Systems View：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://pan.baidu.com/s/1f90NQ9X_7YprUXT5sRatcg?pwd=dxtg" target="_blank">BaiduDisk/extraction code: dxtg</a> / <a href="bsv" target="_blank">On this website</a><br><br>
     </div>
 
 
@@ -943,37 +982,37 @@
     <!---**********************************************************************************************************************************************************************-->
 
     <div id="DIV_AHMM_INFO" style="display: block; padding-left: 0px; padding-right:0px; padding-top:0px; padding-bottom:0px; position: absolute; left: 0px; top:1420px; color:white; background-color: none; border: 0px solid #FF0000; z-index:201; opacity:0.7">
-        <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">阿色全息脑图</span><br>
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;全息脑图是按照大系统观原理开发的新型思维工具，用于升维思考。世间每项事物都是一个系统，都有一个核心 —— 吸引子@。全息脑图让您以系统的观点看待世界，专注系统的结构信息——全息，抓住事物的本质，透过表象和数据发现规律。
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;阿色全息脑图制作软件 ahmm.html，可在线使用，也可下载后离线使用。它具有神奇的全息有机系统的特点：数据与执行码一体化，能自己给自己保存数据，并能够无限运行繁衍，即生成的脑图可以继续生成下一代脑图。<br><br>
-        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【全息脑图示例】</span><br>
-        &nbsp;&nbsp;⑴ 什么是全息脑图？What's AHMM？&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/1-阿色全息脑图-什么是全息脑图？Whats_AHMM？.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑵ 大系统观（BSV_ Big Systems View）全息脑图&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/2-阿色全息脑图-大系统观（BSV_ Big_Systems_View）全息脑图.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑶ 大系统观：经典系统科学和系统论要义全息脑图&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/3-阿色全息脑图-大系统观：经典系统科学和系统论要义全息脑图.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑷ 大系统观：系统结构动力学全息脑图&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/4-阿色全息脑图-大系统观：系统结构动力学全息脑图.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑸ 大系统观：全息有机系统论全息脑图&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/5-阿色全息脑图-大系统观：全息有机系统论全息脑图.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑹ 大系统观：大系统观哲学全息脑图&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/6-阿色全息脑图-大系统观：大系统观哲学全息脑图.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑺ 大系统观：自由讨论&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/7-阿色全息脑图-大系统观：自由讨论.html" target="_blank">查看</a><br>
-        &nbsp;&nbsp;⑻ 数智之道：关于人工智能与数智油田建设的哲学<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;和方法论探讨(多脑图)&nbsp;&nbsp;<a href="bsv/DI_ROAD/ahmm-数智之道：关于人工智能与数智油田建设的哲学和方法论探讨.html" target="_blank">查看</a> / <a href="bsv/数智之道：关于人工智能与数智油田建设的哲学和方法论探讨-20241122.zip" target="_blank">打包下载</a><br>
-        &nbsp;&nbsp;⑼ 忒修斯之船：AI背景下对数智油田转型发展的思考&nbsp;&nbsp;<a href="bsv/TEXIUSI_SHIP/ahmm-忒修斯之船：AI背景下对数智油田转型发展的思考.html" target="_blank">查看</a> / <a href="bsv/忒修斯之船：AI背景下对数智油田转型发展的思考-20241122.zip" target="_blank">打包下载</a><br>
-        &nbsp;&nbsp;⑽ 其他全息脑图作品&nbsp;&nbsp;<a href="ahmm/全部脑图文件" target="_blank">查看</a><br><br>
-        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【分享全息脑图】</span>&nbsp;&nbsp;&nbsp;欢迎各位学友上传分享你的全息脑图作品！&nbsp;<a href="ahmm/全部脑图文件/100-学友分享的全息脑图/" target="_blank">查看</a>&nbsp;/&nbsp;<a href="ahmm/upload_ahmm/upload_ahmm.html?dir=100-学友分享的全息脑图" target="_blank">分享</a>(MBA在左侧[交作业])<br><br>            
+        <span style="font-size:24px;  color:#00CCFF; font-weight: bold;">Arthur's Holographic Mind Map</span><br>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;Arthur's Holographic Mind Map (AHMM) is a new type of thinking tool developed based on the principle of BSV, used for dimensionality enhancement thinking. Everything in the world is a system with a core - attractor @. AHMM allows you to view the world from a systematic perspective, focusing on the structural information of the system - holography, grasping the essence of things, and discovering patterns through appearances and data.<br>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;The AHMM software can be used online or downloaded for offline use. It has the characteristics of a magical holographic organic system: data and execution code are integrated, it can save data for itself, and can infinitely run and reproduce, that is, the generated brain map can continue to generate the next generation of brain maps.<br><br>
+        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【Examples for AHMM】</span><br>
+        &nbsp;&nbsp;⑴ What's AHMM？&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/1-阿色全息脑图-什么是全息脑图？Whats_AHMM？.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑵ AHMM on Big Systems View&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/2-阿色全息脑图-大系统观（BSV_ Big_Systems_View）全息脑图.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑶ AHMM on BSV: the essence of classical system science and system theory&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/3-阿色全息脑图-大系统观：经典系统科学和系统论要义全息脑图.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑷ AHMM on BSV: System Structure Dynamics&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/4-阿色全息脑图-大系统观：系统结构动力学全息脑图.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑸ AHMM on BSV: Holographic Organic System Theory&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/5-阿色全息脑图-大系统观：全息有机系统论全息脑图.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑹ AHMM on BSV: Philosophy of Big Systems View&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/6-阿色全息脑图-大系统观：大系统观哲学全息脑图.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑺ AHMM on BSV: free discussion&nbsp;&nbsp;<a href="ahmm/全部脑图文件/1-示例/7-阿色全息脑图-大系统观：自由讨论.html" target="_blank">View</a><br>
+        &nbsp;&nbsp;⑻ The Way of Intelligence: Philosophical and Methodological Exploration of Artificial Intelligence and Intelligent Oilfield Construction (Multi AHMM Mode)&nbsp;&nbsp;<a href="bsv/DI_ROAD/ahmm-数智之道：关于人工智能与数智油田建设的哲学和方法论探讨.html" target="_blank">View</a> / <a href="bsv/数智之道：关于人工智能与数智油田建设的哲学和方法论探讨-20241122.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑼ Ship of Theseus: Reflections on the Transformation and Development of IDOF under the Background of AI&nbsp;&nbsp;<a href="bsv/TEXIUSI_SHIP/ahmm-忒修斯之船：AI背景下对数智油田转型发展的思考.html" target="_blank">View</a> / <a href="bsv/忒修斯之船：AI背景下对数智油田转型发展的思考-20241122.zip" target="_blank">Download</a><br>
+        &nbsp;&nbsp;⑽ Other AHMM Works&nbsp;&nbsp;<a href="ahmm/全部脑图文件" target="_blank">View</a><br><br>
+        <span style="font-size:20px;  color:#00ccff; font-weight: bold;">【Share Your AHMMs】</span>&nbsp;&nbsp;&nbsp;Welcome all friends and students to upload and share your AHMM works!&nbsp;<a href="ahmm/全部脑图文件/100-学友分享的全息脑图/" target="_blank">View</a>&nbsp;/&nbsp;<a href="ahmm/upload_ahmm/upload_ahmm.html?dir=100-学友分享的全息脑图" target="_blank">Share</a>(MBA to Left [Homework])<br><br>            
         <br>
-        <img src="img/new.png" height="20" /><span style="font-size:24px;  color:#00CCFF; font-weight: bold;">西哲大咖们：系列全息脑图</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2025.8.1完成） <a href="ahmm/全部脑图文件/2-西哲大咖们/ahmm-西哲大咖们_0：前言.html" target="_blank">查看</a> / <a href="ahmm/全部脑图文件/2-西哲大咖们" target="_blank">目录</a> / <a href="ahmm/全部脑图文件/2-西哲大咖们/西哲大咖们：系列全息脑图.zip" target="_blank">下载</a><br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;运用全息脑图系统归纳和整理西方各个时期主要哲学家的思想精髓，以罗素为分界点，其前的哲学家以其《西方哲学史》为主要资料，其后的现当代哲学家由其他资料补充。根据本人以往的读书笔记整理，恳请大家批评与指正。<br><br>
+        <img src="img/new.png" height="20" /><span style="font-size:24px;  color:#00CCFF; font-weight: bold;">Big Potatos of Western Philosophers: Series of AHMMs</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Completed on Aug 1st, 2025) <a href="ahmm/全部脑图文件/2-西哲大咖们/ahmm-西哲大咖们_0：前言.html" target="_blank">View</a> / <a href="ahmm/全部脑图文件/2-西哲大咖们" target="_blank">contents</a> / <a href="ahmm/全部脑图文件/2-西哲大咖们/西哲大咖们：系列全息脑图.zip" target="_blank">Download</a><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Using AHMM system to summarize and organize the essence of the thoughts of major philosophers in various periods of the West, with Bertrand Arthur William Russell as the dividing point. The previous philosophers used his "History of Western Philosophy" as the main material, and the later modern and contemporary philosophers supplemented it with other materials. Based on my previous reading notes, I kindly request everyone to criticize and correct me.<br><br>
         <br>
-        <span style="font-size:24px; color:#00CCFF; font-weight: bold;">阿色自制神器</span><br><br>
+        <span style="font-size:24px; color:#00CCFF; font-weight: bold;">Tools Made by Arthur, Host of this Website</span><br><br>
         <table border="0">
-            <tr><td valign="middle" width="30"><img src="img/N-gram_logo.png" alt="使用N-Gram和余弦相似度控制LLM上下文" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">LLM Context控制</span><span style="color:#FFFFFF;">：使用N-Gram和余弦相似度控制上下文 </span><a href="https://www.cnblogs.com/BigSystemsView/p/19064423" target="_blank">详情 下载1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/使用N-Gram和余弦相似度控制上下文.zip" target="_blank">2</a></td></tr>
-            <tr><td valign="middle" width="30"><img src="img/RunOnWeb_logo.png" alt="RunOnWeb协议-浏览器中执行本地程序" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">RunOnWeb 协议</span><span style="color:#FFFFFF;">：浏览器执行本地程序，浏览器互调 </span><a href="https://www.cnblogs.com/BigSystemsView/p/18075192" target="_blank">详情 下载1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/RunOnWeb_V_1_0_0_发布文件包.zip" target="_blank">2</a><a href="site_downloads/RunOnWebExam详细示例.html" target="_blank"> 测试页</a></td></tr>
-            <tr><td valign="middle" width="30"><img src="img/SSKLogo.png" alt="SSK-超级键盘模拟器" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">SSK: 超级键盘模拟器</span><span style="color:#FFFFFF;">：调用底层，模拟所有键盘操作 </span><a href="https://www.cnblogs.com/BigSystemsView/p/18060787" target="_blank">详情 下载1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/SSK-超级键盘模拟器_V1_0_2-发布文件包-包含快Key.zip" target="_blank">2</a></td></tr>
-            <tr><td valign="middle" width="30"><img src="img/QuicKeys_logo.png" alt="快Key" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">快Key: QuicKeys</span><span style="color:#FFFFFF;">智能登录助手：自动填写用户名/密码的程序 </span><a href="https://www.cnblogs.com/BigSystemsView/p/13613306.html" target="_blank">详情 下载1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/快Key-登录助手-安装-QuicKeys_2-8_Setup_for_Win7-10_20220926.zip" target="_blank">2</a></td></tr>
-            <tr><td valign="middle" width="30"><img src="img/ppt-timer.png" alt="PPT计时器" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">PPT计时器</span><span style="color:#FFFFFF;">：在PPT中任意位置动态显示日期时间和计时器 </span><a href="https://www.cnblogs.com/BigSystemsView/p/16531624.html" target="_blank">详情 下载1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/在PPT任意位置动态显示日期时间-计时器-20230822.zip" target="_blank">2</a></td></tr>
-            <tr><td valign="middle" width="30"><img src="img/py-3doors.png" alt="Python对比实验：三门问题" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">Python对比实验</span><span style="color:#FFFFFF;">：模拟三门问题过程，对比Python效率 </span><a href="https://www.cnblogs.com/BigSystemsView/p/13901753.html" target="_blank">详情</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/N-gram_logo.png" alt="使用N-Gram和余弦相似度控制LLM上下文" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">LLM Context Control</span><span style="color:#FFFFFF;">：Using N-Gram and cosine similarity to control context </span><a href="https://www.cnblogs.com/BigSystemsView/p/19064423" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail Download1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/使用N-Gram和余弦相似度控制上下文.zip" target="_blank">2</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/RunOnWeb_logo.png" alt="RunOnWeb协议-浏览器中执行本地程序" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">RunOnWeb Protocol</span><span style="color:#FFFFFF;">：A browser executes local programs, and browsers call each other </span><a href="https://www.cnblogs.com/BigSystemsView/p/18075192" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail Download1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/RunOnWeb_V_1_0_0_发布文件包.zip" target="_blank">2</a><a href="site_downloads/RunOnWebExam详细示例.html" target="_blank"> Test</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/SSKLogo.png" alt="SSK-超级键盘模拟器" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">SSK: Super Keyboard Simulator</span><span style="color:#FFFFFF;">：Call the underlying system to simulate all keyboard operations </span><a href="https://www.cnblogs.com/BigSystemsView/p/18060787" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail Download1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/SSK-超级键盘模拟器_V1_0_2-发布文件包-包含快Key.zip" target="_blank">2</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/QuicKeys_logo.png" alt="快Key" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">QuicKeys</span><span style="color:#FFFFFF;">: Smart login assistant, a program that automatically fills in usernames/passwords </span><a href="https://www.cnblogs.com/BigSystemsView/p/13613306.html" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail Download1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/快Key-登录助手-安装-QuicKeys_2-8_Setup_for_Win7-10_20220926.zip" target="_blank">2</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/ppt-timer.png" alt="PPT计时器" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">PPT Timer</span><span style="color:#FFFFFF;">：Dynamically display date, time, and timer at any position in a PPT show</span><a href="https://www.cnblogs.com/BigSystemsView/p/16531624.html" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail Download1</a><span style="color:#FFFFFF;">/</span><a href="site_downloads/在PPT任意位置动态显示日期时间-计时器-20230822.zip" target="_blank">2</a></td></tr>
+            <tr><td valign="middle" width="30"><img src="img/py-3doors.png" alt="Python对比实验：三门问题" width="30"></td><td valign="middle"><span style="font-size:20px; color:white;">Comparative Test for Python</span><span style="color:#FFFFFF;">：Simulate the process of three door problems and compare Python efficiency </span><a href="https://www.cnblogs.com/BigSystemsView/p/13901753.html" target="_blank"><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Detail</a></td></tr>
         </table>
         <br><br>
-        <span style="font-size:24px; color:#00CCFF; font-weight: bold;">AI学习资料</span><br><br>
+        <span style="font-size:24px; color:#00CCFF; font-weight: bold;">AI Studies</span><br><br>
         <table border="0">
             <tr style="height: 20px;">
                 <td valign="middle">
@@ -993,46 +1032,13 @@
             </tr>       
         </table>
         <br><br>
-        <span style="font-size:24px;  color:#00ccff; font-weight: bold;">其他资料</span><br><br>
-        &nbsp;&nbsp;⑴ LLM训练语料：<a href="txt/BSV_core_knowledge_base.md" target="_blank">语料库 MarkDown</a> <a href="txt/BSV_core_knowledge_base.html" target="_blank">HTML</a> <a href="txt/大系统观_原书_纯文本.txt" target="_blank">原书纯文本</a> <a href="txt/大系统观_PPT_纯文本_1of3.txt" target="_blank">扩展文本 1</a> / <a href="txt/大系统观_PPT_纯文本_2of3.txt" target="_blank">2</a> / <a href="txt/大系统观_PPT_纯文本_3of3.txt" target="_blank">3</a> / <a href="txt/大系统观_原书_纯文本-10万字.md" target="_blank">4</a><br>
-        &nbsp;&nbsp;⑵ AI大模型学习资料：<a href="site_downloads/AI大模型学习材料.7z" target="_blank">下载</a> <br>
-        &nbsp;&nbsp;⑶ 3天4步学会蛙泳&nbsp;&nbsp; <a href="swimming/swimming.html" target="_blank">查看</a> <a href="swimming/swimming.zip" target="_blank">下载</a><br><br><br>
+        <span style="font-size:24px;  color:#00ccff; font-weight: bold;">Other Materials</span><br><br>
+        &nbsp;&nbsp;⑴ LLM Training Corpus：<a href="txt/BSV_core_knowledge_base.md" target="_blank">MarkDown</a> <a href="txt/BSV_core_knowledge_base.html" target="_blank">HTML</a> <a href="txt/大系统观_原书_纯文本.txt" target="_blank">Original text of the book</a> / <a href="txt/大系统观_PPT_纯文本_1of3.txt" target="_blank">Extended Text 1</a> <a href="txt/大系统观_PPT_纯文本_2of3.txt" target="_blank">2</a> <a href="txt/大系统观_PPT_纯文本_3of3.txt" target="_blank">3</a> <a href="txt/大系统观_原书_纯文本-10万字.md" target="_blank">4</a><br>
+        &nbsp;&nbsp;⑵ Learning Materials about LLM：<a href="site_downloads/AI大模型学习材料.7z" target="_blank">Download</a> <br>
+        &nbsp;&nbsp;⑶ Learn breaststroke in 3 days and 4 steps&nbsp;&nbsp; <a href="swimming/swimming.html" target="_blank">View</a> <a href="swimming/swimming.zip" target="_blank">Download</a><br><br><br>
         <table border="0">
-            <tr><td valign="middle" width="30" style="vertical-align: top;"><hr><img src="img/DeepSeek_logo.png" alt="DeepSeek" width="30"></td><td valign="middle" style="vertical-align: top;"><hr><span style="font-size:20px; color:#00CCFF;">DeepSeek API 大模型调用试验</span>&nbsp;&nbsp;<span style="color:#FFFFFF;">浏览器端使用API Key直接调用 </span><a href="test/TestforCallDeepSeekApi.html" target="_blank">进入</a></td></tr>
-            <tr><td valign="middle" width="30" style="vertical-align: top;"><hr><img src="img/Chrome_logo.png" alt="谷歌浏览器" width="30"></td><td valign="middle" style="vertical-align: top;"><hr><span style="font-size:20px; color:#00CCFF;">本网站建议使用谷歌浏览器：Chrome</span>&nbsp;&nbsp;<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">电脑端下载</a> <a href="https://www.qqtn.com/azsoft/167990.html" target="_blank"> 手机端下载</a></td></tr>
-        </table>
-        <br><br>
-        <!-- 外部链接 英文版与此不同，因为英文排版原版更好 -->
-        <table border="1"  style="color:white; font-size:14px; width: 95%;">
-        <tr>
-            <td colspan="2" rowspan="3" style="text-align: center; vertical-align: middle;">
-                <a href="https://github.com/" target="_blank"><img id="GITHUB_LOGO" src="img/github-logo.png" alt="GitHub" width="80"></a>
-            </td>
-            <td style="text-align: left; vertical-align: middle;">主站</td>
-            <td style="text-align: left; vertical-align: middle;"><a href="https://github.com/arthurqwang" target="_blank">https://github.com/arthurqwang</a></td>
-        </tr>
-        <tr>
-            <td style="text-align: left; vertical-align: middle;">镜像</td>
-            <td style="text-align: left; vertical-align: middle;"><a href="https://bgithub.xyz/arthurqwang" target="_blank">https://bgithub.xyz/arthurqwang</a></td>
-        </tr>
-        <tr>
-            <td style="text-align: left; vertical-align: middle;">网页</td>
-            <td style="text-align: left; vertical-align: middle;"><a href="https://arthurqwang.github.io" target="_blank">https://arthurqwang.github.io</a></td>
-        </tr>
-        <tr style="vertical-align: bottom;">
-            <td colspan="2" style="text-align: center; vertical-align: middle; height: 30px;">
-                <a href="https://gitcode.com/" target="_blank"><img id="GITCODE_LOGO" src="img/gitcode-logo.png" alt="GitCode" width="80"></a>
-            </td>
-            <td style="text-align: left; vertical-align: middle;">主页</td>
-            <td style="text-align: left; vertical-align: middle;"><a href="https://gitcode.com/arthurqwang" target="_blank">https://gitcode.com/arthurqwang</a></td>
-        </tr>
-        <tr style="vertical-align: bottom;">
-            <td colspan="2" style="text-align: center; vertical-align: middle; height: 30px;">
-                <a href="https://www.cnblogs.com//" target="_blank"><img id="BKY_LOGO" src="img/BKY_logo.svg" alt="博客园" width="80"></a>
-            </td>
-            <td style="text-align: left; vertical-align: middle;">主页</td>
-            <td style="text-align: left; vertical-align: middle;"><a href="https://www.cnblogs.com/BigSystemsView" target="_blank">https://www.cnblogs.com/BigSystemsView</a></td>
-        </tr>
+            <tr><td valign="middle" width="30" style="vertical-align: top;"><hr><img src="img/DeepSeek_logo.png" alt="DeepSeek" width="30"></td><td valign="middle" style="vertical-align: top;"><hr><span style="font-size:20px; color:#00CCFF;">DeepSeek API Test</span>&nbsp;&nbsp;<span style="color:#FFFFFF;">Directly call the API Key on the browser side </span><a href="test/TestforCallDeepSeekApi.html" target="_blank">Enter</a></td></tr>
+            <tr><td valign="middle" width="30" style="vertical-align: top;"><hr><img src="img/Chrome_logo.png" alt="谷歌浏览器" width="30"></td><td valign="middle" style="vertical-align: top;"><hr><span style="font-size:20px; color:#00CCFF;">This website recommends using Google Chrome browser</span>&nbsp;&nbsp;<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">Download PC version</a> / <a href="https://www.qqtn.com/azsoft/167990.html" target="_blank"> Download App for phone</a></td></tr>
         </table>
     </div>
 
@@ -1102,24 +1108,88 @@
 <script>
 
     // 随机显示闪烁的文字数组
-    const wordsArray = ["Welcome to the world of BSV!", "欢迎智者登陆BSV星球！", "这是一个智慧的世界，欢迎智者到来！", 
-    "大系统观星球欢迎智者的到来！", "欢迎来到我们的星球！智者的家园！", "Hi, BSV!","欢迎常来BSV星球！", "Welcome Back！",
-    "大同世界 和而不同", "大系统观是超越传统系统工程思想的新系统论","宇宙是个大系统，我们要以系统之身融入其中",
-    "大系统观是一种新哲学","万物皆系统","系统的使命是生存-发展-再造",
-    "我是一个系统，我要与世界这个大系统融洽相处","系统的功能就是系统使命","每个系统都有吸引子，它是系统的核心与灵魂",
-    "大系统是全息有机系统","化身系统，与世界共舞",
-    "大系统观是一种全新的思维方式","小系统要紧，大系统要松","大系统观指导人工智能","系统科学是人类智慧的源泉","系统创造秩序",
-    "智能就是在混沌中识别并创造秩序的能力","逆则深耕，顺则速成",
-    "厚脸皮是第一方法论","知行合一，行为先","大系统观思想属于全人类","智能=全息+共振","小系统亡于外患，大系统亡于内乱",
-    "智能只是一种系统涌现，没什么神奇的！","大系统观=做大事的宝典", "所有的自组织现象背后都有组织力存在，而最后的组织力是自然规律",
-    "大系统观是基于当代最新科学成果的系统哲学","大系统观是最科学的哲学","多方竞争，长板长者胜；双方对决，短板短者败",
-    "系统规模是系统的第一属性，规律服从规模", "守业靠团队，创业靠团伙，团队团伙都要靠系统",
-    "乱拳打死老师傅，这是大系统观","建构-解构思维是大系统观","迭代精进是大系统观","反对机械系统观，拥抱大系统观",
-    "第一性原理是一种大系统观","全息有机系统论是大系统观的核心思想","系统结构动力学是大系统观的基本原理",
-    "用大系统观建立自己的哲学和方法论","大系统观是精英的智慧","学习大系统观，打造全息激光战队！","建设数智油田要有大系统观",
-    "数字油田是全息有机系统","大系统观:基于不确定性的确定性原理","大系统观是超越常人认知的哲学",
-    "大系统观，只有高人才懂的哲学","BSV = Big Systems View","大系统观，因【大】而不同！","大系统观，【大】是关键词",
-    "大系统观，不是简单的【大】","大 ≈ 量变到质变 = 系统维度的提升","统一 = 低维度的无序 → 高维度的有序" ]
+    // const wordsArray = ["Welcome to the world of BSV!", "欢迎智者登陆BSV星球！", "这是一个智慧的世界，欢迎智者到来！", 
+    // "大系统观星球欢迎智者的到来！", "欢迎来到我们的星球！智者的家园！", "Hi, BSV!","欢迎常来BSV星球！", "Welcome Back！",
+    // "大同世界 和而不同", "大系统观是超越传统系统工程思想的新系统论","宇宙是个大系统，我们要以系统之身融入其中",
+    // "大系统观是一种新哲学","万物皆系统","系统的使命是生存-发展-再造",
+    // "我是一个系统，我要与世界这个大系统融洽相处","系统的功能就是系统使命","每个系统都有吸引子，它是系统的核心与灵魂",
+    // "大系统是全息有机系统","化身系统，与世界共舞",
+    // "大系统观是一种全新的思维方式","小系统要紧，大系统要松","大系统观指导人工智能","系统科学是人类智慧的源泉","系统创造秩序",
+    // "智能就是在混沌中识别并创造秩序的能力","逆则深耕，顺则速成",
+    // "厚脸皮是第一方法论","知行合一，行为先","大系统观思想属于全人类","智能=全息+共振","小系统亡于外患，大系统亡于内乱",
+    // "智能只是一种系统涌现，没什么神奇的！","大系统观=做大事的宝典", "所有的自组织现象背后都有组织力存在，而最后的组织力是自然规律",
+    // "大系统观是基于当代最新科学成果的系统哲学","大系统观是最科学的哲学","多方竞争，长板长者胜；双方对决，短板短者败",
+    // "系统规模是系统的第一属性，规律服从规模", "守业靠团队，创业靠团伙，团队团伙都要靠系统",
+    // "乱拳打死老师傅，这是大系统观","建构-解构思维是大系统观","迭代精进是大系统观","反对机械系统观，拥抱大系统观",
+    // "第一性原理是一种大系统观","全息有机系统论是大系统观的核心思想","系统结构动力学是大系统观的基本原理",
+    // "用大系统观建立自己的哲学和方法论","大系统观是精英的智慧","学习大系统观，打造全息激光战队！","建设数智油田要有大系统观",
+    // "数字油田是全息有机系统","大系统观:基于不确定性的确定性原理","大系统观是超越常人认知的哲学",
+    // "大系统观，只有高人才懂的哲学","BSV = Big Systems View","大系统观，因【大】而不同！","大系统观，【大】是关键词",
+    // "大系统观，不是简单的【大】","大 ≈ 量变到质变 = 系统维度的提升","统一 = 低维度的无序 → 高维度的有序" ]
+
+    const wordsArray = [
+    "Welcome to the world of BSV!",
+    "Welcome wise people to land on the BSV planet!",
+    "This is a world of wisdom. Welcome, wise man!",
+    "The BSV planet welcomes the arrival of wise people !",
+    "Welcome to our planet! The home of wise people!",
+    "Hi, BSV!",
+    "Welcome to visit the BSV planet often!",
+    "Welcome Back!",
+    "A world of great harmony with diversity",
+    "BSV is a new system theory that transcends traditional system engineering thinking",
+    "The universe is a big system, and we should integrate into it as a system",
+    "BSV is a new philosophy",
+    "Everything is a system",
+    "The mission of a system is survival - development - regeneration",
+    "I am a system, and I want to get along harmoniously with the big system of the world",
+    "The function of a system is just its mission",
+    "Each system has an attractor, which is the core and soul of the system",
+    "The big system is a holographic organic system",
+    "Become a system and dance with the world",
+    "BSV is a totally new way of thinking",
+    "Small systems should be tight, while big systems should be loose",
+    "BSV guides artificial intelligence",
+    "System science is the source of human wisdom",
+    "Systems create order",
+    "Intelligence is the ability to identify and create order in chaos",
+    "Work hard in adversity and achieve quick success in favorable circumstances",
+    "Shamelessness is the first methodology",
+    "Unity of knowledge and action, with action coming first",
+    "The thought of BSV belongs to all mankind",
+    "Intelligence = holography + resonance",
+    "Small systems perish from external threats, while big systems perish from internal chaos",
+    "Intelligence is just a system emergence, nothing magical!",
+    "BSV = The treasure book for doing great things",
+    "Behind every self-organizing phenomenon, there is organizational force, and the ultimate organizational force is natural law",
+    "BSV is a system philosophy based on the latest contemporary scientific achievements",
+    "BSV is the most scientific philosophy",
+    "In multi-party competition, the one with longer strengths wins; in a two-party duel, the one with shorter weaknesses loses",
+    "System scale is the first attribute of a system, and laws obey scale",
+    "Maintaining a business relies on a team, starting a business relies on a gang, and both teams and gangs rely on systems",
+    "A wild punch can defeat an experienced master. This is BSV",
+    "Construction-deconstruction thinking is BSV",
+    "Iterative refinement is BSV",
+    "Oppose mechanical system views and embrace BSV",
+    "The first-principles thinking is a kind of BSV",
+    "The holographic organic system theory is the core idea of BSV",
+    "System structure dynamics is the basic principle of BSV",
+    "Use BSV to establish your own philosophy and methodology",
+    "BSV is the wisdom of the elite",
+    "Learn BSV and build a holographic laser team!",
+    "Building a digital and intelligent oil field requires BSV",
+    "The digital oil field is a holographic organic system",
+    "BSV: The principle of certainty based on uncertainty",
+    "BSV is a philosophy that transcends ordinary people's cognition",
+    "BSV is a philosophy only understood by high-achievers",
+    "BSV = Big Systems View",
+    "BSV, different because of [big]!",
+    "[Big] is the keyword of BSV",
+    "BSV is not simply about [big]",
+    "Big ≈ Quantitative change to qualitative change = The elevation of system dimensions",
+    "Unity = Disorder in low dimensions → Order in high dimensions"
+];
+
 
     // 页面底部挖宝的图片数组
     const picsArray = [
@@ -1448,7 +1518,7 @@
 
     // 显示所有闪烁文字
     function showAllShiningWords() {
-        let allWords = "【BSV金句-全部内容】：\n";
+        let allWords = "【BSV Golden Sentences】：\n";
         for (let i = 0; i < wordsArray.length; i++) {
             allWords += " > " + (i+1) +" " + (wordsArray[i] + "\n");
         }
@@ -1612,8 +1682,8 @@
 </script>
 
 <div style="display: none;">
-    本站是大系统观的唯一官方网站，最具权威性。
-    融合经典系统理论和前沿科技思想，创建与时俱进的大系统新哲学
+    This Web is the official web of Big system View
+    A New System Philosophy Integrating Classic System Theories and Pioneer Insights from Sci & Tech
     用于全文检索：大系统观,BSV,Big Systems View,王权,阿色树新风,全息脑图,ahmm,bjbq20120919xj,系统,系统论,系统科学,系统工程,系统思维,系统观,大信息观,全息,系统结构,哲学,思维科学,数字油田,智能油田,智慧油田,数智油田,智能数字油田开放论坛,iDOF,全息有机系统论,系统结构动力学
     Welcome to the world of BSV!    欢迎登陆BSV星球！    这是一个智慧的世界    大系统观星球欢迎你的到来！    欢迎来到我们的星球！这是一颗智慧的星球！    Hi  BSV!   欢迎常来BSV星球！    Welcome Back！  
     大同世界 和而不同    大系统观是超越传统系统工程思想的新系统论   宇宙是个大系统，我们要以系统之身融入其中   大系统观是一种新哲学   万物皆系统   系统的使命是生存-发展-再造  
