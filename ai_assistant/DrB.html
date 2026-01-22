@@ -1,0 +1,655 @@
+<html>
+    <!-- 小B博士 app 嵌入此文件 -->
+    <!-- 最后修改日期：2026.1.22 -->
+    <!-- 手机 app 使用 HBuilder X 4.87 建立，这个 app 直接调用 本html(DrB.html)，所以直接修改本html文件即可，app 只是一个手机端调用的壳。 -->
+    <!-- 设置语言。机器人等根据此设置调整输出文字，以及其他显示 -->
+    <script>
+        // hmpg_robot/hmpg_robot_call_llm.js 中使用下列定义
+        const SITE_LANGUAGE = 'ZH'; // 'ZH'表示中文，'EN'表示英文。设置提示词时使用。
+        const CLIENT_TYPE = '2'; // '1'表示电脑浏览器,'2'表示手机app。设置显示样式和LLM提示词时使用。
+    </script>
+
+<head> 
+<meta charset="UTF-8"> 
+<meta name="keywords" content="本网站是大系统观的官方网站,最具权威性,大系统观,BSV,Big Systems View,王权,阿色树新风,全息脑图,ahmm,Arthur's Holographic Mind Map,阿色全息脑图,bjbq20120919xj,系统,系统论,系统科学,系统工程,系统思维,系统观,大信息观,全息,系统结构,哲学,思维科学,数字油田,智能油田,智慧油田,数智油田,智能数字油田开放论坛,iDOF,全息有机系统论,系统结构动力学,融合经典系统理论和前沿科技思想，创建与时俱进的大系统新哲学">
+<meta name="robots" content="index, follow">
+<title>小B博士♥大系统观</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+
+<style>
+    /* 总体设置 */
+    body{
+        background: #000;
+        padding: 0;
+        margin: 0; 
+    }
+
+    .header{
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        position: relative;
+    }
+
+    a:link {
+        color:rgb(174, 214, 247);
+        text-decoration:none;
+    }
+    a:visited {
+        color:rgb(174, 214, 247);
+        text-decoration:none;
+    }
+    a:hover {
+        color:rgb(92, 212, 241);
+        text-decoration:none;
+    }
+    a:active {
+        color:rgb(230, 202, 143);
+        text-decoration:none;
+    }
+
+    /* 设置图片呼吸动画 */
+    .breathing-image {
+        animation: pulse 1s infinite;  /* 调用动画 */
+        animation-delay: 10s;  /* 先等待5秒 */
+        animation-duration: 15s; /* 整个动画的时长 */
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);  /* 开始和结束的缩放值 */
+                filter: brightness(100%);  /* 开始和结束的亮度 */
+            }
+            50% {
+                transform: scale(0.97);  /* 中间的缩放值 */
+                filter: brightness(0%);  /* 中间的亮度 */
+            }
+        }
+
+
+    /* 设置button - 增强立体感+边框版本 */
+    .tutorial-button {
+        margin: 4px;
+        opacity: 1; 
+        border-radius: 20px;
+        /* 背景渐变 - 顶部亮色底部暗色模拟光线 */
+        /* background: linear-gradient(180deg, #ffffff 0%, #999999 100%); */
+        cursor: pointer;
+        /* 增强阴影效果 */
+        box-shadow: 
+            0 3px 10px rgba(0, 0, 0, 0.1),  /* 外阴影 - 立体感 */
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),  /* 内高光 */
+            inset 0 -1px 0 rgba(0, 0, 0, 0.1);  /* 内阴影 */
+        transition: all 0.2s ease;
+        position: relative;
+        /* 强化边框 - 使用双边框效果 */
+        border: 6px solid #056852;
+        /* 边框高光 - 顶部和左侧添加浅色边框模拟光线 */
+        border-top: 6px solid #25ecf3;
+        border-left: 6px solid #2cf0f0;
+    }
+
+    /* 设置文字闪烁动画 */
+    #shiningWords {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        text-align: left;
+        font-size: 30px;
+        background-color: none;
+        z-index: 1010;
+        transition: opacity 2s ease-in-out;
+        /* 添加文字黑边效果 */
+        text-shadow: 
+            2px 0 0 #000, 
+            -2px 0 0 #000,
+            0 2px 0 #000,
+            0 -2px 0 #000,
+            2px 2px 0 #000,   /* 右下角 */
+            -2px -2px 0 #000, /* 左上角 */
+            2px -2px 0 #000,  /* 右上角 */
+            -2px 2px 0 #000;  /* 左下角 */
+    }
+
+    /* 设置闪烁文字前面的单个星星的闪烁，用一个div的背景色实现 */
+    #singleStar {
+        position: absolute; 
+        display:none;
+        width: 15px;
+        height: 15px;
+        transform: rotate(45deg);
+        filter: blur(3px);
+        animation: flash 0.2s infinite alternate;
+        z-index:1009;
+    }
+    @keyframes flash {
+        0% {
+            opacity: 0.2;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* 机器人对话使用 <hr> */
+    .hr-robot {
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 620px;
+        height: 1px; 
+        background-color: rgb(60, 60, 60); 
+        border: none;
+    }
+
+    /* 立体边框样式 */
+    .video-container {
+        /* display: inline-block; */
+        /* margin: 50px; */
+        padding: 5px; /* 边框宽度 */
+        border-radius: 5px;
+        background: #000; /* 边框颜色 */
+        box-shadow: 
+            2px 2px 4px rgba(9, 70, 88, 0.5), /* 右下阴影增强立体感 */
+            -1px -1px 2px rgba(255, 255, 255, 0.2); /* 左上微光增强立体感 */
+    }
+
+    video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 渐进显示整个页面 */
+    .fade-in {
+        animation: fadeIn 10s forwards; 
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }  
+    }
+
+    /* 复制机器人对话时，冒泡Toast1通知样式 */
+    #toast1 {
+        visibility: hidden;
+        min-width: 250px;
+        height: 60px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 500px;
+        font-size: 40px;
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0.5s;
+    }
+    
+    #toast1.show {
+        visibility: visible;
+        opacity: 1;
+    }   
+    
+    /* 清除、新启动机器人对话时，冒泡Toast2通知样式 */
+    #toast2 {
+        visibility: hidden;
+        min-width: 250px;
+        height: 60px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 500px;
+        font-size: 40px;
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0.5s;
+    }
+    
+    #toast2.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+</style>
+
+</head> 
+
+<body><div  class="fade-in">
+
+    
+    <!-- ********************************************************************** 网站顶部封面全屏 *******************************************************************************-->
+    <!---********************************************************************* BSV LOGO 和 机器人*******************************************************************************-->
+    <!---**********************************************************************************************************************************************************************-->
+    <div id="DIV_BSV_LOGO_AND_ROBOT"  style="text-align: center; display: block; position: absolute; color:yellow; background-color:#000; border: 0px solid #FF0000; font-size:20px; z-index:1000;">
+
+        <!-- 顶部空白 占高10%, 聊天开始后5% -->
+        <div id="DIV_TOP_BLANK" style="height: 10%; background-color: transparent; border: 0px solid #FF0000;"></div>
+        
+        <!-- BSV Logo 占高25%, 聊天开始后隐藏 -->
+        <div id="DIV_LOGO_IMG" style="height: 25%; background-color: transparent; border: 0px solid #0a8338;">
+            <img src="img/大系统观书法6_phone_app.png"  alt="大系统观：融合经典系统理论和前沿科技思想，创建与时俱进的大系统新哲学" style="height: 100%; transition: transform 0.3s ease;">
+        </div>
+        
+        <!-- 机器人打招呼的话 占高10%, 聊天开始后隐藏 -->
+        <div id="Dr_B_Greeting" class="breathing-image" style="height: 10%; margin-left: 100px; background-color: transparent; border: 0px solid #55642c;">  
+            <img src="img/Dr_B_Greeting_phone_app.png" style="height: 100%;" alt="我是【小B博士】，大系统观AI助手。有事就找我哦！">
+        </div>
+        
+        <!-- 扫码分享小B -->
+        <div id="DIV_SHARE_DRB_TEXT_PIC" style="height: 10%; display:none; font-size: 40px; line-height: 1.2; background-color: transparent; border: 0px solid #55642c;">  
+            分享【小B博士】App<br>请扫描二维码<br>或到官网下载
+        </div>
+        
+        <!-- 小B博士视频，点击后显示AI对话 占高20%, 聊天开始后调为10% -->
+        <div id="Dr_B_Div" style="height: 20%; background-color: transparent; border: 0px solid #6b2238;">  
+            <video id="Dr_B_Video_0" style="height: 100%; width: 100%;" autoplay muted>
+                <source src="img/Dr_B.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const video = document.getElementById('Dr_B_Video_0');
+                    
+                    // 确保视频可以自动播放（需要muted属性）
+                    video.muted = true;
+                    
+                    // 10秒后重新播放（无论当前视频是否结束）
+                    setTimeout(function() {
+                        video.currentTime = 0;
+                        video.play();
+                        
+                        // 设置每10秒重播一次
+                        setInterval(function() {
+                            video.currentTime = 0;
+                            video.play();
+                        }, 10000);
+                    }, 10000);
+                });
+            </script>
+        </div>
+
+        <!-- 小B app 分享二维码 -->
+        <div id="DIV_SHARE_DRB_QRCODE" style="height: 20%; display:none; background-color: transparent; border: 0px solid #6b2238;"">
+            <img src="img/share_DrB_app.jpg" style="height: 100%;" alt="【小B博士】分享二维码">
+        </div>
+
+        <!-- 复制、清除、关闭按钮 占高5%, 开始不显示，聊天开始后显示操作符号 -->
+        <div id="DIV_MID_BLANK" style="height: 5%; background-color: transparent; border: 0px solid #211e4d; display: flex; justify-content: flex-end; align-items: center; z-index: 20000;">
+            <div id="copy-button" style="display: none; font-size: 60px; cursor: pointer; color: #0cf;" onclick="copyTalk();">❐</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="clear-button" style="display: none; font-size: 54px; cursor: pointer; color: #0cf;" onclick="clearTalk();">✂</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="close-button" style="display: none; font-size: 48px; cursor: pointer; color: #0cf;" onclick="showDrBHomepage();">⏎</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+
+        <!-- 按键、网站链接  占高25%, 底端剩余5%, 聊天开始后隐藏 -->
+        <div id="DIV_CHAT_BUTTON" style="height: 25%; background-color: transparent; border: 0px solid #af376f;">
+            <button id="begin-chat-button" class="tutorial-button" onclick="hideDrBHomepage(); callQuestion();" style="width: 60%; height: 22%; font-size: 40px;">开始聊天</button>
+            <div style="height: 5%;"></div> 
+            <button class="tutorial-button" onclick="showShareDrB();" style="width: 60%; height: 18%; font-size: 40px;">分享【小B博士】</button>
+            <div style="height: 15%;"></div>   
+            <span style="font-size: 50px;">【大系统观官网】</span><br>
+            <a href="https://www.holomind.com.cn" target="_blank"><span style="font-size: 32px;">www.holomind.com.cn</span></a>
+            <div style="height: 15px;"></div>
+            <!-- 访问计数器，与网站是同一个 -->
+            <img src="https://s11.flagcounter.com/mini/pqNg/bg_999999/txt_333333/border_000000/flags_0/">
+        </div>
+
+        <!-- 底边留白 占高5% -->
+
+        <!-- 上面是第一屏，下面是第二屏 -->
+
+        <!-- 机器人回答内容 此上logo高度占 20% ，此 占高65%-->
+        <!-- 这个 div 就是那个暗蓝色方框 -->
+        <div id="answer-div" style="width: 90%; height: 65%; padding: 10px; 
+            display: none; justify-content: center; gap: 8px; margin: 0 auto; 
+            color: #aaa; background-color: rgba(0, 0, 0, 0.7); border: 2px solid  rgba(0, 170, 255, 0.4); z-index: 11000; text-align: center;">
+
+            <!-- 回答内容 程序自动填写聊天过程文本 -->
+            <div id="talk-with-chatbot" style="display: block; width: 100%; height: 100%; overflow-y: auto; text-align: justify; line-height: 1.5; font-size: 45px; margin-top: 2px;">
+            </div>
+
+            <!-- 处理复制、清除并新建对话内容的提示用 -->
+            <!-- 复制 Toast1通知 -->
+            <div id="toast1"> 对话文本已复制到剪贴板 </div>
+            <!-- 清除 Toast2通知 -->
+            <div id="toast2">新对话已启动，请继续...</div>
+
+        </div>
+
+        <!-- 问答机器人 此上高度占 85% ，此 占高14%，底部留1%-->
+        <div id="robot-input" style="width: 93%; height: 14%;  display: none; align-items: center; justify-content: center; gap: 2px; margin: 0 auto; 
+            z-index: 11001; text-align: center;  background-color: transparent; border: 0px solid #17d327;">
+            <textarea id="one-sentence-input-from-hmpg" class="tutorial-button" style="width: 80%; height:90%; padding-left: 10px; background-color: #ffffff; overflow: hidden; font-size: 50px;"></textarea>
+            <button id="question-btn-from-hmpg" 
+                    class="tutorial-button" 
+                    style="width: 20%; height:90%; font-size: 50px; background-color: #fff;" 
+                    onclick="this.style.backgroundColor='#aaf0f0'; setTimeout(() => { this.style.backgroundColor='#fff'; callQuestion(); }, 200);">
+            发送
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 顶部文字闪烁动画图层 -->
+    <div id="singleStar"></div><div id="shiningWords" onclick="showAllShiningWords();"></div> 
+
+    
+    <!-- 跟上面 html 直接相关的 javascript -->
+    <!-- 处理 复制、清除、关闭 按钮 -->
+    <script>
+
+        // 复制对话内容
+        function copyTalk() {
+
+            // 获取要复制的文本
+            const textToCopy = document.getElementById('talk-with-chatbot').innerText;
+            
+            // 使用现代剪贴板API
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    // 复制成功，显示Toast1通知
+                    showToast1('对话文本已复制到剪贴板');
+                })
+                .catch(err => {
+                    // 如果剪贴板API不可用，使用旧方法
+                    try {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = textToCopy;
+                        textarea.style.position = 'fixed';  // 避免滚动到页面底部
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        
+                        const successful = document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        
+                        if (successful) {
+                            showToast1('对话文本已复制到剪贴板');
+                        } else {
+                            showToast1('复制失败，请手动选择文本复制', true);
+                        }
+                    } catch (err) {
+                        showToast1('复制失败，请手动选择文本复制', true);
+                    }
+                });
+        }
+        
+        function showToast1(message, isError = false) {
+            const toast1 = document.getElementById('toast1');
+            toast1.textContent = message;
+            
+            // 根据是否错误设置不同样式
+            if (isError) {
+                toast1.style.backgroundColor = '#f44336'; // 红色
+            } else {
+                toast1.style.backgroundColor = '#333'; // 深灰色
+            }
+            
+            // 显示Toast1
+            toast1.classList.add('show');
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                toast1.classList.remove('show');
+            }, 3000);
+        }
+
+
+        // 清除、新建对话
+        function clearTalk() {
+            // 清空对话内容
+            document.getElementById('talk-with-chatbot').innerHTML='';
+            // 显示Toast2通知
+            showToast2('新对话已启动，请继续...');
+        }
+        
+        function showToast2(message, isError = false) {
+            const toast2 = document.getElementById('toast2');
+            toast2.textContent = message;
+            
+            // 根据是否错误设置不同样式
+            if (isError) {
+                toast2.style.backgroundColor = '#f44336'; // 红色
+            } else {
+                toast2.style.backgroundColor = '#333'; // 深灰色
+            }
+            
+            // 显示Toast2
+            toast2.classList.add('show');
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                toast2.classList.remove('show');
+            }, 3000);
+        }
+
+
+        // 从当前对话返回，显示首页
+        function showDrBHomepage() {
+            document.getElementById('DIV_TOP_BLANK').style.height = '10%';
+            document.getElementById('DIV_LOGO_IMG').style.display = 'block';
+            document.getElementById('Dr_B_Greeting').style.display = 'block';
+            document.getElementById('Dr_B_Div').style.height = '20%';
+            document.getElementById('DIV_CHAT_BUTTON').style.display = 'block';
+
+            document.getElementById('answer-div').style.display='none';
+            document.getElementById('copy-button').style.display='none';
+            document.getElementById('clear-button').style.display='none';
+            document.getElementById('close-button').style.display='none';
+            document.getElementById('robot-input').style.display='none';
+
+            document.getElementById('Dr_B_Div').style.display = 'block';
+            document.getElementById('DIV_SHARE_DRB_TEXT_PIC').style.display = 'none';
+            document.getElementById('DIV_SHARE_DRB_QRCODE').style.display = 'none';
+
+            document.getElementById("begin-chat-button").textContent = "继续聊天";
+
+        }
+
+
+        // 隐藏首页，显示机器人对话界面
+        function hideDrBHomepage() {
+            clearInterval(shiningWordsInterval);  // 停止闪烁文字计时器
+
+            document.getElementById('DIV_TOP_BLANK').style.height = '5%';
+            document.getElementById('DIV_LOGO_IMG').style.display = 'none';
+            document.getElementById('Dr_B_Greeting').style.display = 'none';
+            document.getElementById('Dr_B_Div').style.height = '10%';
+            document.getElementById('DIV_CHAT_BUTTON').style.display = 'none';
+
+            document.getElementById('answer-div').style.display='flex';
+            document.getElementById('copy-button').style.display='flex';
+            document.getElementById('clear-button').style.display='flex';
+            document.getElementById('close-button').style.display='flex';
+            document.getElementById('robot-input').style.display='flex';
+
+            document.getElementById('Dr_B_Div').style.display = 'block';
+            document.getElementById('DIV_SHARE_DRB_TEXT_PIC').style.display = 'none';
+            document.getElementById('DIV_SHARE_DRB_QRCODE').style.display = 'none';
+        }
+
+
+        // 显示分享小B博士二维码
+        function showShareDrB() {
+            document.getElementById('Dr_B_Greeting').style.display = 'none';
+            document.getElementById('Dr_B_Div').style.display = 'none';
+            document.getElementById('DIV_SHARE_DRB_TEXT_PIC').style.display = 'block';
+            document.getElementById('DIV_SHARE_DRB_QRCODE').style.display = 'block';
+        }
+
+    </script>
+
+
+<!---*********************************************************************************************************************-->
+<!---*********************************************************************************************************************-->
+<!---*********************************************** 主程序 JavaScript 开始 ***********************************************-->
+<!---*********************************************************************************************************************-->
+<!---*********************************************************************************************************************-->
+
+<script>
+
+    // 随机显示闪烁的文字数组
+    const wordsArray = ["Welcome to the world of BSV!", "欢迎智者登陆BSV星球！", "这是一个智慧的世界，欢迎智者到来！", 
+    "大系统观星球欢迎智者的到来！", "欢迎来到我们的星球！智者的家园！", "Hi, BSV!","欢迎常来BSV星球！", "Welcome Back！",
+    "大同世界 和而不同", "大系统观是超越传统系统工程思想的新系统论","宇宙是个大系统，我们要以系统之身融入其中",
+    "大系统观是一种新哲学","万物皆系统","系统的使命是生存-发展-再造",
+    "我是一个系统，我要与世界这个大系统融洽相处","系统的功能就是系统使命","每个系统都有吸引子，它是系统的核心与灵魂",
+    "大系统是全息有机系统","化身系统，与世界共舞",
+    "大系统观是一种全新的思维方式","小系统要紧，大系统要松","大系统观指导人工智能","系统科学是人类智慧的源泉","系统创造秩序",
+    "智能就是在混沌中识别并创造秩序的能力","逆则深耕，顺则速成",
+    "厚脸皮是第一方法论","知行合一，行为先","大系统观思想属于全人类","智能=全息+共振","小系统亡于外患，大系统亡于内乱",
+    "智能只是一种系统涌现，没什么神奇的！","大系统观=做大事的宝典", "所有的自组织现象背后都有组织力存在，而最后的组织力是自然规律",
+    "大系统观是基于当代最新科学成果的系统哲学","大系统观是最科学的哲学","多方竞争，长板长者胜；双方对决，短板短者败",
+    "系统规模是系统的第一属性，规律服从规模", "守业靠团队，创业靠团伙，团队团伙都要靠系统",
+    "乱拳打死老师傅，这是大系统观","建构-解构思维是大系统观","迭代精进是大系统观","反对机械系统观，拥抱大系统观",
+    "第一性原理是一种大系统观","全息有机系统论是大系统观的核心思想","系统结构动力学是大系统观的基本原理",
+    "用大系统观建立自己的哲学和方法论","大系统观是精英的智慧","学习大系统观，打造全息激光战队！","建设数智油田要有大系统观",
+    "数字油田是全息有机系统","大系统观:基于不确定性的确定性原理","大系统观是超越常人认知的哲学",
+    "大系统观，只有高人才懂的哲学","BSV = Big Systems View","大系统观，因【大】而不同！","大系统观，【大】是关键词",
+    "大系统观，不是简单的【大】","大 ≈ 量变到质变 = 系统维度的提升","统一 = 低维度的无序 → 高维度的有序" ]
+
+</script>
+
+<!--******************* 设置BSV logo、机器人等位置，居中，<body>设置的在有的手机上不居中 ********************************************-->
+<script>
+
+    let w = window.innerWidth;
+    let h = window.innerHeight - 10;
+
+    document.getElementById("DIV_BSV_LOGO_AND_ROBOT").style.width= w + "px";
+    document.getElementById("DIV_BSV_LOGO_AND_ROBOT").style.height= h + "px";
+    document.getElementById("DIV_BSV_LOGO_AND_ROBOT").style.left = "0px";  //(w / 2 - 200) + "px";
+    document.getElementById("DIV_BSV_LOGO_AND_ROBOT").style.top = "0px";
+
+</script>
+
+
+<!-- ****************************************** 闪烁文字代码 ******************************************** -->
+<script>
+
+    // 是否显示闪烁文字，true显示，false不显示。书法版不显示
+    const SHOW_SHINING_WORDS = true; 
+    const SHINNING_WORDS_INTERVAL = 10000; // 闪烁文字显示间隔时间，单位毫秒
+
+    var shiningWordsInterval;  // 保存闪烁文字计时器
+
+    // 定义闪烁欢迎词的次数，1-3次，这样使得更随机，但每次都先显示欢迎词
+    var welcomeWordsCount = Math.floor(Math.random() * 3) + 1;
+
+    // 定义上面的显示闪烁文字中，前几个是欢迎词？
+    const welcomeWordsNum = 8;
+    // 获得屏幕宽度
+    const scnWid = window.innerWidth;
+    // 设定闪烁文字div宽度
+    const wordsDivWidth = Math.floor(scnWid/1.2);
+    const wordsDiv = document.getElementById('shiningWords');
+    wordsDiv.style.width = wordsDivWidth + "px";
+    // 设定闪烁文字div前面闪烁的单个星星
+    const singleStarDiv = document.getElementById('singleStar');
+    // 保存前一个金句，避免连着两次出现
+    var lastWords = "";
+
+    // 随机选择一个闪烁文字字符串
+    function getRandomWord() {
+        let randomIndex = Math.floor(Math.random() * (wordsArray.length -welcomeWordsNum)) + welcomeWordsNum; // + welcomeWordsNum 确保随机索引在显示过欢迎词后不再显示欢迎词
+        // 避免连着两次相同
+        do {
+            randomIndex = Math.floor(Math.random() * (wordsArray.length -welcomeWordsNum)) + welcomeWordsNum;
+        } while (lastWords === wordsArray[randomIndex]);  
+        
+        lastWords = wordsArray[randomIndex];
+        return wordsArray[randomIndex];
+    }
+
+    // load最初显示欢迎词，使用闪烁词中的前几个
+    function getFirstRandomWord() {
+        const randomIndex = Math.floor(Math.random() * welcomeWordsNum);
+        welcomeWordsCount--;
+        return wordsArray[randomIndex];
+    }
+
+    // 随机给闪烁词设置一个淡色
+    function getRandomPaleColor() {
+        const letters = '789abc';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 6)];
+        }
+        return color;
+    }
+
+    // 显示闪烁的一串文字
+    function showShiningWords() {
+        //const wordsDiv = document.getElementById('shiningWords');
+        let randomWord = getRandomWord();
+        if (welcomeWordsCount > 0) { randomWord = getFirstRandomWord(); }
+        const randomColor = getRandomPaleColor();
+
+        wordsDiv.textContent = randomWord;   
+        wordsDiv.style.color = randomColor;
+        wordsDiv.style.top = `${Math.floor(Math.random() * h * 0.2) + 5}px`;    // 出现高度在LOGO上下附近
+        singleStarDiv.style.top = wordsDiv.style.top;
+        singleStarDiv.style.backgroundColor = randomColor;
+        
+        const divLeft = Math.floor(Math.random() * (scnWid-wordsDivWidth-30));  // -30为了不出屏幕边
+        // 设置文字左或右对齐，避免遮挡中间的BSV logo
+        if( (divLeft + wordsDivWidth/2) > (scnWid/2) ) {
+            wordsDiv.style.textAlign = "right";
+            singleStarDiv.style.left=(divLeft+wordsDivWidth+5)+"px";
+        }
+        else {
+            wordsDiv.style.textAlign = "left";
+            singleStarDiv.style.left=(divLeft-20)+"px";
+        }
+        wordsDiv.style.left = `${divLeft}px`;    
+        
+        // 渐进
+        wordsDiv.style.opacity = 1;
+        singleStarDiv.style.opacity = 1;
+        singleStarDiv.style.display = "block";
+
+        // 中间停留3秒后渐出
+        setTimeout(() => {
+            wordsDiv.style.opacity = 0;
+            singleStarDiv.style.opacity = 0;
+            singleStarDiv.style.display = "none";   
+        }, 4000);
+
+        // 重置以备下一次显示
+        setTimeout(() => {
+            wordsDiv.textContent = '';
+            singleStarDiv.style.display = "none";   
+        }, 6000);
+    }
+
+
+    // 页面加载时调用一次，之后每10秒调用一次。不要设为随机间隔时间，经试验，效果不好。
+    window.onload = function() {
+        // 一般情况下显示，但书法版时不显示闪烁文字
+        if(SHOW_SHINING_WORDS == true) {
+            showShiningWords();
+            shiningWordsInterval = setInterval(showShiningWords, SHINNING_WORDS_INTERVAL);
+        }
+    };
+
+</script>
+
+
+
+<!-- javascript: 调用 LLM ，以及预处理文本 -->
+<script>
+    // 动态加载脚本并避免缓存，使修改立即生效
+    const script = document.createElement('script');
+    script.src = `hmpg_robot/hmpg_robot_call_llm.js?t=${Date.now()}`;
+    document.head.appendChild(script);
+</script>
+
+</div></body> 
+</html> 
